@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.xml.XmlBeanFactory;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 
@@ -16,9 +17,7 @@ public class TrinetService {
 	public void getEmployeeInfo(String employeeId){
 		
 		      
-		    Resource r=new ClassPathResource("applicationContext.xml");  
-		    @SuppressWarnings("deprecation")
-			BeanFactory factory=new XmlBeanFactory(r);  
+			ClassPathXmlApplicationContext factory=new ClassPathXmlApplicationContext("applicationContext.xml");  
 		      
 		    EmployeeDao employee=(EmployeeDao)factory.getBean("employeeDao");  
 		      
