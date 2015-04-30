@@ -11,7 +11,7 @@ import com.trinet.aboutme.beans.EmergencyContact;
  *
  */
 public interface EmergencyContactDAO {
-
+int a=2;
 	List<EmergencyContact> getEmergencyContacts(Integer employeeId);
 
 }
