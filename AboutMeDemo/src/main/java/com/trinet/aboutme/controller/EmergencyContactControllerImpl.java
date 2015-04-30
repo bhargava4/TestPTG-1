@@ -37,7 +37,7 @@ public class EmergencyContactControllerImpl implements EmergencyContactControlle
 	@Override
 	public String createEmergencyContact(@RequestBody EmergencyContactDTO contactDTO) {
 		emergencyContactService.createEmergencyContact(contactDTO);
-		return "Success";
+		return "Successfully Added";
 	}
 
 	/* (non-Javadoc)
@@ -46,7 +46,7 @@ public class EmergencyContactControllerImpl implements EmergencyContactControlle
 	@Override
 	public String updateEmergencyContact(@RequestBody EmergencyContactDTO contactDTO) {
 		emergencyContactService.updateEmergencyContact(contactDTO);
-		return "Success";
+		return "Successfully Updated";
 	}
 	
 }
