@@ -49,5 +49,25 @@ public class EmergencyContactServiceImpl implements EmergencyContactService {
 		}
 		return dtosList;
 	}
+
+	/* (non-Javadoc)
+	 * @see com.trinet.aboutme.service.EmergencyContactService#createEmergencyContact(com.trinet.aboutme.dtos.EmergencyContactDTO)
+	 */
+	@Override
+	public void createEmergencyContact(EmergencyContactDTO contactDTO) {
+		EmergencyContact emergencyContact = new EmergencyContact();
+		BeanUtils.copyProperties(contactDTO, emergencyContact);
+		emergencyContactDAO.saveEmergencyContact(emergencyContact);
+	}
+
+	/* (non-Javadoc)
+	 * @see com.trinet.aboutme.service.EmergencyContactService#updateEmergencyContact(com.trinet.aboutme.dtos.EmergencyContactDTO)
+	 */
+	@Override
+	public void updateEmergencyContact(EmergencyContactDTO contactDTO) {
+		EmergencyContact emergencyContact = new EmergencyContact();
+		BeanUtils.copyProperties(contactDTO, emergencyContact);
+		emergencyContactDAO.updaeEmergencyContact(emergencyContact);
+	}
 	
 }
