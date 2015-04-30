@@ -25,7 +25,7 @@ public class EmployeeInfoDAOImpl extends HibernateDaoSupport implements
 
 	@Override
 	public List<Address> getAddress(Integer employeeId) {
-		getCriteria().add(Restrictions.eq("employeeId", employeeId));
+		getCriteria().add(Restrictions.eq("employeeID", employeeId));
 		List<Address> findByCriteria = (List<Address>)getHibernateTemplate().findByCriteria(criteria);
 		return findByCriteria;
 	}
