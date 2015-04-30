@@ -22,6 +22,7 @@
 		<property name="annotatedClasses">
 			<list>
 				<value>com.trinet.aboutme.beans.EmergencyContact</value>
+				<value>com.trinet.aboutme.beans.Address</value>
 			</list>
 		</property>
 
