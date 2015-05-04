@@ -1,8 +1,13 @@
 package com.trinet.aboutme.dtos;
 
+import org.codehaus.jackson.annotate.JsonAutoDetect;
 
+@JsonAutoDetect
 public class AddressDTO {
 
+	public AddressDTO() {
+		// TODO Auto-generated constructor stub
+	}
 	private int addressID;
 	
 	private int employeeID;

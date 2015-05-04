@@ -65,4 +65,17 @@ public class EmployeeInfoServiceImpl implements EmployeeInfoService {
 		}
 		return nameDTOList;
 	}
+
+
+	@Override
+	public List<AddressDTO> maintainAddress(AddressDTO addressDTO) {
+		List<AddressDTO> addressDTOList = new ArrayList<AddressDTO>();
+		List<Address> addressList = employeeInfoDAO.maintaniAddress(addressDTO);
+		for (Address address : addressList) {
+			AddressDTO addressDTOTemp = new AddressDTO(); 
+			BeanUtils.copyProperties(address, addressDTOTemp);
+			addressDTOList.add(addressDTOTemp);
+		}
+		return addressDTOList;
+	}
 }

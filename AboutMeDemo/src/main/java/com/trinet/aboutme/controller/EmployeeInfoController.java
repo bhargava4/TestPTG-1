@@ -3,7 +3,9 @@
  */
 package com.trinet.aboutme.controller;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -30,7 +32,8 @@ public interface EmployeeInfoController {
 	@RequestMapping(value="/name/{employeeId}", method=RequestMethod.GET)
 	public NameDTO getName(@PathVariable int employeeId);
 
-
 	
+	@RequestMapping(value="/address/", method=RequestMethod.PUT, produces="application/json")
+	public AddressDTO maintainAddress(@RequestBody AddressDTO addressDTO);
 	
 }

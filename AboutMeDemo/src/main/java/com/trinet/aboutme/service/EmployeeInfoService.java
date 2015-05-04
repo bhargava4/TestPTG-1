@@ -11,4 +11,5 @@ public interface EmployeeInfoService {
 	List<AddressDTO> getAddress(Integer employeeId);
 	List<ContactDTO> getContact(Integer employeeId);
 	List<NameDTO> getName(Integer employeeId);
+	List<AddressDTO> maintainAddress(AddressDTO addressDTO);
 }
