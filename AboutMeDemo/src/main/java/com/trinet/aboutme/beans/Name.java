@@ -1,28 +1,38 @@
-
-
+/**
+ * 
+ */
 package com.trinet.aboutme.beans;
+
+import java.sql.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/**
+ * @author Keerthi
+ *
+ */
 @Entity
-@Table(name="name")
+@Table(name="contact")
 public class Name {
-
+	
 	@Id
+	@Column(name="nameID")
+	private int nameID;
+	
 	@Column(name="name")
-	private int name;
+	private String name;
 	
 	@Column(name="employeeID")
 	private int employeeID;
 	
 	@Column(name="effectiveDate")
-	private String effectiveDate;
+	private Date effectiveDate;
 	
-	@Column(name="formOfAddress")
-	private String formOfAddress;
+	@Column(name="formofaddress")
+	private String formofaddress;
 	
 	@Column(name="firstName")
 	private String firstName;
@@ -31,30 +41,29 @@ public class Name {
 	private String middleName;
 	
 	@Column(name="suffix")
-	private String addressLine2;
+	private String suffix;
 	
-	@Column(name="addressLine3")
-	private String addressLine3;
+	@Column(name="lastName")
+	private String lastName;
 	
-	@Column(name="city")
-	private String city;
-	
-	@Column(name="county")
-	private String county;
-	
-	@Column(name="stateOrProvince")
-	private String stateOrProvince;
-	
-	@Column(name="postalCode")
-	private String postalCode;
+	@Column(name="nameType")
+	private String nameType;
 
-	/*public int getAddressID() {
-		return addressID;
+	public int getNameID() {
+		return nameID;
 	}
 
-	public void setAddressID(int addressID) {
-		this.addressID = addressID;
-	}*/
+	public void setNameID(int nameID) {
+		this.nameID = nameID;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
 
 	public int getEmployeeID() {
 		return employeeID;
@@ -64,89 +73,60 @@ public class Name {
 		this.employeeID = employeeID;
 	}
 
-	/*public String getAddressType() {
-		return addressType;
-	}
-
-	public void setAddressType(String addressType) {
-		this.addressType = addressType;
-	}*/
-
-	public String getEffectiveDate() {
+	public Date getEffectiveDate() {
 		return effectiveDate;
 	}
 
-	public void setEffectiveDate(String effectiveDate) {
+	public void setEffectiveDate(Date effectiveDate) {
 		this.effectiveDate = effectiveDate;
 	}
 
-	/*public String getCountry() {
-		return country;
+	public String getFormofaddress() {
+		return formofaddress;
 	}
 
-	public void setCountry(String country) {
-		this.country = country;
+	public void setFormofaddress(String formofaddress) {
+		this.formofaddress = formofaddress;
 	}
 
-	public String getAddressLine1() {
-		return addressLine1;
+	public String getFirstName() {
+		return firstName;
 	}
 
-	public void setAddressLine1(String addressLine1) {
-		this.addressLine1 = addressLine1;
-	}*/
-
-	public String getAddressLine2() {
-		return addressLine2;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
 
-	public void setAddressLine2(String addressLine2) {
-		this.addressLine2 = addressLine2;
+	public String getMiddleName() {
+		return middleName;
 	}
 
-	public String getAddressLine3() {
-		return addressLine3;
+	public void setMiddleName(String middleName) {
+		this.middleName = middleName;
 	}
 
-	public void setAddressLine3(String addressLine3) {
-		this.addressLine3 = addressLine3;
+	public String getSuffix() {
+		return suffix;
 	}
 
-	public String getCity() {
-		return city;
+	public void setSuffix(String suffix) {
+		this.suffix = suffix;
 	}
 
-	public void setCity(String city) {
-		this.city = city;
+	public String getLastName() {
+		return lastName;
 	}
 
-	public String getCounty() {
-		return county;
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 
-	public void setCounty(String county) {
-		this.county = county;
+	public String getNameType() {
+		return nameType;
 	}
 
-	public String getStateOrProvince() {
-		return stateOrProvince;
+	public void setNameType(String nameType) {
+		this.nameType = nameType;
 	}
 
-	public void setStateOrProvince(String stateOrProvince) {
-		this.stateOrProvince = stateOrProvince;
-	}
-
-	public String getPostalCode() {
-		return postalCode;
-	}
-
-	public void setPostalCode(String postalCode) {
-		this.postalCode = postalCode;
-	}
-	
-	
-	
 }
-
-
-

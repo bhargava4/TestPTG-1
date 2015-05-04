@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.trinet.aboutme.dtos.AddressDTO;
+import com.trinet.aboutme.dtos.ContactDTO;
 
 /**
  * 
@@ -21,5 +22,10 @@ public interface EmployeeInfoController {
 
 	@RequestMapping(value="/addresses/{employeeId}", method=RequestMethod.GET)
 	public AddressDTO getAddress(@PathVariable int employeeId);
+	
+	@RequestMapping(value="/contacts/{employeeId}", method=RequestMethod.GET)
+	public ContactDTO getContact(@PathVariable int employeeId);
+
+	
 	
 }
