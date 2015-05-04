@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.trinet.aboutme.dtos.AddressDTO;
 import com.trinet.aboutme.dtos.ContactDTO;
+import com.trinet.aboutme.dtos.NameDTO;
 import com.trinet.aboutme.service.EmployeeInfoService;
 
 /**
@@ -60,6 +61,20 @@ public class EmployeeInfoControllerImpl implements EmployeeInfoController {
 		LOGGER.info(" *** end getAddress *****");
 		
 		return contactDTO;
+	}
+	
+	@Override
+	public NameDTO getName(@PathVariable int employeeId) {
+		LOGGER.info(" *** start getName *****");
+		NameDTO nameDTO = new NameDTO();
+		List<NameDTO> nameList= new ArrayList<NameDTO>();
+		nameList = employeeInfoService.getName(employeeId);
+		if(CollectionUtils.isNotEmpty(nameList)){
+		nameDTO=  nameList.get(0);
+		}
+		LOGGER.info(" *** end getName *****");
+		
+		return nameDTO;
 	}
 
 }
