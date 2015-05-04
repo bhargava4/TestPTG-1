@@ -18,14 +18,43 @@ import com.trinet.aboutme.dao.EmergencyContactDAO;
  */
 public class EmergencyContactDAOImpl extends HibernateDaoSupport implements
 		EmergencyContactDAO {
-	DetachedCriteria criteria = DetachedCriteria.forClass(EmergencyContact.class);	
-	/* (non-Javadoc)
+	DetachedCriteria criteria = DetachedCriteria
+			.forClass(EmergencyContact.class);
+
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see com.trinet.aboutme.dao.EmergencyContactDAO#getEmergencyContacts(int)
 	 */
 	@Override
 	public List<EmergencyContact> getEmergencyContacts(Integer employeeId) {
 		criteria.add(Restrictions.eq("employeeId", employeeId));
-		return (List<EmergencyContact>)getHibernateTemplate().findByCriteria(criteria);
+		return (List<EmergencyContact>) getHibernateTemplate().findByCriteria(
+				criteria);
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * com.trinet.aboutme.dao.EmergencyContactDAO#saveEmergencyContact(com.trinet
+	 * .aboutme.beans.EmergencyContact)
+	 */
+	@Override
+	public void saveEmergencyContact(EmergencyContact emergencyContact) {
+		getHibernateTemplate().save(emergencyContact);
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * com.trinet.aboutme.dao.EmergencyContactDAO#updaeEmergencyContact(com.
+	 * trinet.aboutme.beans.EmergencyContact)
+	 */
+	@Override
+	public void updaeEmergencyContact(EmergencyContact emergencyContact) {
+		getHibernateTemplate().update(emergencyContact);
 	}
 
 }
