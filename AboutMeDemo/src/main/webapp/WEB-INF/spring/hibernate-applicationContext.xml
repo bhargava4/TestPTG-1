@@ -23,13 +23,15 @@
 			<list>
 				<value>com.trinet.aboutme.beans.EmergencyContact</value>
 				<value>com.trinet.aboutme.beans.Address</value>
+				<value>com.trinet.aboutme.beans.Contact</value>
+				<value>com.trinet.aboutme.beans.Name</value>
 			</list>
 		</property>
 
 		<property name="hibernateProperties">
 			<props>
 				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
-				<prop key="hibernate.hbm2ddl.auto">update</prop>
+				<prop key="hibernate.hbm2ddl.auto">create</prop>
 				<prop key="hibernate.show_sql">true</prop>
 				
 			</props>
