@@ -1,35 +1,36 @@
-/**
- * 
- */
 package com.trinet.aboutme.dtos;
 
-import java.util.Date;
+import java.sql.Date;
 
 import javax.persistence.Column;
 
-/**
- * @author Shannu
- *
- */
 public class NameDTO {
 
+private int nameID;
+	
 	private String name;
-
+	
 	private int employeeID;
-
+	
 	private Date effectiveDate;
-
-	private String formOfAddress;
-
+	
+	private String formofaddress;
+	
 	private String firstName;
-
+	
 	private String middleName;
-
+	
 	private String suffix;
-
+	
 	private String lastName;
+	
+	public int getNameID() {
+		return nameID;
+	}
 
-	private String nameType;
+	public void setNameID(int nameID) {
+		this.nameID = nameID;
+	}
 
 	public String getName() {
 		return name;
@@ -55,12 +56,12 @@ public class NameDTO {
 		this.effectiveDate = effectiveDate;
 	}
 
-	public String getFormOfAddress() {
-		return formOfAddress;
+	public String getFormofaddress() {
+		return formofaddress;
 	}
 
-	public void setFormOfAddress(String formOfAddress) {
-		this.formOfAddress = formOfAddress;
+	public void setFormofaddress(String formofaddress) {
+		this.formofaddress = formofaddress;
 	}
 
 	public String getFirstName() {
@@ -101,5 +102,7 @@ public class NameDTO {
 
 	public void setNameType(String nameType) {
 		this.nameType = nameType;
-	}	
+	}
+
+	private String nameType;
 }
