@@ -7,6 +7,6 @@
 <title>Trinet Passport Login</title>
 </head>
 <body bgcolor="#4654446">
-<h1 align="center" style="font:"> Trinet Passport Demo</h1>
+<h1 align="center" style="font:"> Trinet Passport Demo </h1>
 </body>
 </html>
