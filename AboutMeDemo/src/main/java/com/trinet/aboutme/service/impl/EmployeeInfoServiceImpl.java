@@ -7,11 +7,9 @@ import org.springframework.beans.BeanUtils;
 
 import com.trinet.aboutme.beans.Address;
 import com.trinet.aboutme.beans.Contact;
-import com.trinet.aboutme.beans.Name;
 import com.trinet.aboutme.dao.EmployeeInfoDAO;
 import com.trinet.aboutme.dtos.AddressDTO;
 import com.trinet.aboutme.dtos.ContactDTO;
-import com.trinet.aboutme.dtos.NameDTO;
 import com.trinet.aboutme.service.EmployeeInfoService;
 
 public class EmployeeInfoServiceImpl implements EmployeeInfoService {
@@ -52,19 +50,6 @@ public class EmployeeInfoServiceImpl implements EmployeeInfoService {
 			contactDTOList.add(contactDTO);
 		}
 		return contactDTOList;
-	}
-	
-	
-	@Override
-	public List<NameDTO> getName(Integer employeeId) {
-		List<NameDTO> nameDTOList = new ArrayList<NameDTO>();
-		List<Name> nameList = employeeInfoDAO.getName(employeeId);
-		for (Name name : nameList) {
-			NameDTO nameDTO = new NameDTO(); 
-			BeanUtils.copyProperties(name, nameDTO);
-			nameDTOList.add(nameDTO);
-		}
-		return nameDTOList;
 	}
 
 }
