@@ -6,6 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.trinet.aboutme.dtos.EmergencyContactDTO;
@@ -30,4 +31,21 @@ public class EmergencyContactControllerImpl implements EmergencyContactControlle
 		return emergencyContactService.getEmergencyContacts(new Integer(employeeNo));
 	}
 	
+	/* (non-Javadoc)
+	 * @see com.trinet.aboutme.EmergencyContactController#createEmergencyContact(com.trinet.aboutme.dtos.EmergencyContactDTO)
+	 */
+	@Override
+	public String createEmergencyContact(@RequestBody EmergencyContactDTO contactDTO) {
+		emergencyContactService.createEmergencyContact(contactDTO);
+		return "Successfully Added";
+	}
+
+	/* (non-Javadoc)
+	 * @see com.trinet.aboutme.EmergencyContactController#updateEmergencyContact(com.trinet.aboutme.dtos.EmergencyContactDTO)
+	 */
+	@Override
+	public String updateEmergencyContact(@RequestBody EmergencyContactDTO contactDTO) {
+		emergencyContactService.updateEmergencyContact(contactDTO);
+		return "Successfully Updated";
+	}
 }

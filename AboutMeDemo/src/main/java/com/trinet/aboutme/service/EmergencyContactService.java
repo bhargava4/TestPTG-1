@@ -15,4 +15,8 @@ public interface EmergencyContactService {
 
 	List<EmergencyContactDTO> getEmergencyContacts(Integer employeeId);
 
+	void createEmergencyContact(EmergencyContactDTO contactDTO);
+
+	void updateEmergencyContact(EmergencyContactDTO contactDTO);
+
 }

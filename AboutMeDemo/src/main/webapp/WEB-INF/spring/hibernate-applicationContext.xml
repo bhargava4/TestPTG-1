@@ -25,6 +25,7 @@
 				<value>com.trinet.aboutme.beans.Address</value>
 				<value>com.trinet.aboutme.beans.Contact</value>
 				<value>com.trinet.aboutme.beans.Name</value>
+				<value>com.trinet.aboutme.beans.EmployeeProfile</value>
 			</list>
 		</property>
 

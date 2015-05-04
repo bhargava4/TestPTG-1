@@ -14,4 +14,7 @@ public interface EmergencyContactDAO {
 	
 	List<EmergencyContact> getEmergencyContacts(Integer employeeId);
 
+	void saveEmergencyContact(EmergencyContact emergencyContact);
+
+	void updaeEmergencyContact(EmergencyContact emergencyContact);
 }
