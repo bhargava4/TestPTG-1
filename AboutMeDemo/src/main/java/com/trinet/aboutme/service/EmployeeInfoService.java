@@ -25,4 +25,11 @@ public interface EmployeeInfoService {
 	List<ContactDTO> maintainContact(ContactDTO contactDTO);
 	
 	List<NameDTO> maintainName(NameDTO nameDTO);
+	
+	List<PersonalDataDTO> maintainPersonalData(PersonalDataDTO personalDataDTO);
+	
+	List<IdentityDTO>maintainIdentity(IdentityDTO identityDTO);
+
+
+	String deletePersonalData(Integer employeeId);
 }

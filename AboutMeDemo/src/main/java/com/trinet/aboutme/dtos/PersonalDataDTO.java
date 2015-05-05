@@ -13,20 +13,20 @@ import javax.persistence.Column;
  */
 public class PersonalDataDTO {
 
-   private int personalID;
-	
-   private int employeeID;
-	
-	private Date effectiveDate;
-	
+	private int personalID;
+
+	private int employeeID;
+
+	private String effectiveDate;
+
 	private String gender;
-	
+
 	private String martialStatus;
-	
-	private Date birthDate;
-	
+
+	private String birthDate;
+
 	private String militaryStatus;
-	
+
 	private String ethnicity;
 
 	public int getPersonalID() {
@@ -45,14 +45,6 @@ public class PersonalDataDTO {
 		this.employeeID = employeeID;
 	}
 
-	public Date getEffectiveDate() {
-		return effectiveDate;
-	}
-
-	public void setEffectiveDate(Date effectiveDate) {
-		this.effectiveDate = effectiveDate;
-	}
-
 	public String getGender() {
 		return gender;
 	}
@@ -69,11 +61,19 @@ public class PersonalDataDTO {
 		this.martialStatus = martialStatus;
 	}
 
-	public Date getBirthDate() {
+	public String getEffectiveDate() {
+		return effectiveDate;
+	}
+
+	public void setEffectiveDate(String effectiveDate) {
+		this.effectiveDate = effectiveDate;
+	}
+
+	public String getBirthDate() {
 		return birthDate;
 	}
 
-	public void setBirthDate(Date birthDate) {
+	public void setBirthDate(String birthDate) {
 		this.birthDate = birthDate;
 	}
 

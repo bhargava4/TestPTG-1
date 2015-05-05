@@ -122,7 +122,7 @@ public class EmployeeInfoControllerImpl implements EmployeeInfoController {
 	}
 
 	@Override
-	public ContactDTO maintainContact(@RequestBody  ContactDTO contactDTO) {
+	public ContactDTO maintainContact(@RequestBody ContactDTO contactDTO) {
 		LOGGER.info(" *** start maintainContact *****");
 		ContactDTO ctactDTO = new ContactDTO();
 		List<ContactDTO> contactList = new ArrayList<ContactDTO>();
@@ -141,7 +141,34 @@ public class EmployeeInfoControllerImpl implements EmployeeInfoController {
 		return nameDTO;
 	}
 
+	@Override
+	public PersonalDataDTO maintainPersonalData(
+			@RequestBody PersonalDataDTO personalDataDTO) {
+		LOGGER.info(" *** start maintainPersonalData *****");
+		PersonalDataDTO pDataDTO = new PersonalDataDTO();
+		List<PersonalDataDTO> personalDataList = new ArrayList<PersonalDataDTO>();
+		personalDataList = employeeInfoService.maintainPersonalData(personalDataDTO);
+		LOGGER.info(" *** end maintainPersonalData *****");
+		return personalDataDTO;
+	}
 	
+	@Override
+	public IdentityDTO maintainIdentity(@RequestBody IdentityDTO identityDTO) {
+		LOGGER.info(" *** start maintainIdentity *****");
+		IdentityDTO idtyDTO = new IdentityDTO();
+		List<IdentityDTO> identityList = new ArrayList<IdentityDTO>();
+		identityList = employeeInfoService.maintainIdentity(identityDTO);
+		LOGGER.info(" *** end maintainIdentity*****");
+		return identityDTO;
+		
+	}
 
-	
+	@Override
+	public String deletePersonalData(@PathVariable int employeeId) {
+		LOGGER.info(" *** start deletePersonalData *****");
+		String status = employeeInfoService.deletePersonalData(employeeId);
+		LOGGER.info(" *** end deletePersonalData *****");
+		return status;
+	}
+
 }

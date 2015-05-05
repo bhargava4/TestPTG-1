@@ -17,7 +17,9 @@ import com.trinet.aboutme.beans.PersonalData;
 import com.trinet.aboutme.dao.EmployeeInfoDAO;
 import com.trinet.aboutme.dtos.AddressDTO;
 import com.trinet.aboutme.dtos.ContactDTO;
+import com.trinet.aboutme.dtos.IdentityDTO;
 import com.trinet.aboutme.dtos.NameDTO;
+import com.trinet.aboutme.dtos.PersonalDataDTO;
 
 public class EmployeeInfoDAOImpl extends HibernateDaoSupport implements
 		EmployeeInfoDAO {
@@ -222,5 +224,119 @@ public class EmployeeInfoDAOImpl extends HibernateDaoSupport implements
 		List<Name> nameList = (List<Name>)getHibernateTemplate().findByCriteria(criteria);
 		return nameList;
 	}
+	
+	@Override
+	public List<PersonalData> maintaniPersonalData(PersonalDataDTO personalDataDTO) {
+		List<PersonalData> personalDataList = getPersonalDataByPersonalDataId(personalDataDTO.getPersonalID());
+		PersonalData personalData= new PersonalData();
+		if(CollectionUtils.isNotEmpty(personalDataList))
+		{
+			personalData =  personalDataList.get(0);
+		}
+		populatePersonalData(personalDataDTO, personalData);
+		getHibernateTemplate().saveOrUpdate(personalData);
+		return getPersonalData(personalData.getPersonalID());
+	}
+	
+	
+	private void populatePersonalData(PersonalDataDTO personalDataDTO, PersonalData personalData) {
+		if(personalDataDTO.getPersonalID()!=0){
+			personalData.setPersonalID(personalDataDTO.getPersonalID());
+		}
+		if(personalDataDTO.getEmployeeID()!=0)
+		{
+			personalData.setEmployeeID(personalDataDTO.getEmployeeID());
+		}
+		if(!personalDataDTO.getEffectiveDate().isEmpty()){
+			personalData.setEffectiveDate(personalDataDTO.getEffectiveDate());
+		}
+		if(!personalDataDTO.getGender().isEmpty()){
+			personalData.setGender(personalDataDTO.getGender());
+		}
+		if(!personalDataDTO.getMartialStatus().isEmpty()){
+			personalData.setMartialStatus(personalDataDTO.getMartialStatus());
+		}
+		if(!personalDataDTO.getBirthDate().isEmpty()){
+			personalData.setBirthDate(personalDataDTO.getBirthDate());
+		}
+		if(!personalDataDTO.getMilitaryStatus().isEmpty()){
+			personalData.setMilitaryStatus(personalDataDTO.getMilitaryStatus());
+		}
+		if(!personalDataDTO.getEthnicity().isEmpty()){
+			personalData.setEthnicity(personalDataDTO.getEthnicity());
+		}
+		
+	}
+	
+	public List<PersonalData> getPersonalDataByPersonalDataId(Integer pDataId) {
+		 DetachedCriteria criteria = DetachedCriteria
+				.forClass(PersonalData.class);
+		 criteria.add(Restrictions.eq("personalID", pDataId));
+		List<PersonalData> personalDataList = (List<PersonalData>)getHibernateTemplate().findByCriteria(criteria);
+		return personalDataList;
+	}
+
+	@Override
+	public List<Identity> maintaniIdentity(IdentityDTO identityDTO) {
+		List<Identity> identityList = getIdentityByIdentityId(identityDTO.getIdentityID());
+		Identity identity= new Identity();
+		if(CollectionUtils.isNotEmpty(identityList))
+		{
+			identity =  identityList.get(0);
+		}
+		populateIdentity(identityDTO, identity);
+		getHibernateTemplate().saveOrUpdate(identity);
+		return getIdentity(identity.getIdentityID());
+	}
+
+	
+	private void populateIdentity(IdentityDTO identityDTO, Identity identity) {
+		if(identityDTO.getIdentityID()!=0)
+		{
+			identity.setIdentityID(identityDTO.getIdentityID());
+		}
+		
+		if(identityDTO.getEmployeeID()!=0)
+		{
+			identity.setEmployeeID(identityDTO.getEmployeeID());
+		}
+		if(!identityDTO.getSsn().isEmpty())
+		{
+          identity.setSsn(identityDTO.getSsn());
+		}
+		if(!identityDTO.getEmployeeStatus().isEmpty())
+		{
+			identity.setEmployeeStatus(identityDTO.getEmployeeStatus());
+		}
+		if(identityDTO.getAlternateEmployeeID()!=0)
+		{
+			identity.setAlternateEmployeeID(identityDTO.getAlternateEmployeeID());
+		}
+		if(!identityDTO.getCitizenshipStatus().isEmpty())
+		{
+          identity.setCitizenshipStatus(identityDTO.getCitizenshipStatus());
+		}
+		}
+	
+	public List<Identity> getIdentityByIdentityId(Integer idtyId) {
+		 DetachedCriteria criteria = DetachedCriteria
+				.forClass(Identity.class);
+		 criteria.add(Restrictions.eq("identityID", idtyId));
+		List<Identity> identityList = (List<Identity>)getHibernateTemplate().findByCriteria(criteria);
+		return identityList;
+	}
+
+	@Override
+	public String deletePersonalData(Integer employeeId) {
+		PersonalData personalData = new PersonalData();
+		List<PersonalData> personalDataList = getPersonalData(employeeId);
+		if(CollectionUtils.isNotEmpty(personalDataList)){
+			personalData = personalDataList.get(0);
+		}
+		getHibernateTemplate().delete(personalData);
+		return "Successfully deleted";
+	}
+
+	
 
 }

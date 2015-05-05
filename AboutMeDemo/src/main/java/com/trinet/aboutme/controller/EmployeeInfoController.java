@@ -50,4 +50,18 @@ public interface EmployeeInfoController {
 
 	@RequestMapping(value = "/names", method = RequestMethod.PUT, produces="application/json", consumes = "application/json")
 	public NameDTO maintainName(@RequestBody NameDTO nameDTO);
+
+	@RequestMapping(value = "/personaldata", produces="application/json", consumes = "application/json", method = RequestMethod.PUT)
+	public PersonalDataDTO maintainPersonalData(@RequestBody PersonalDataDTO personalDataDTO);
+	
+	@RequestMapping(value="/identities", method=RequestMethod.PUT)
+	public IdentityDTO maintainIdentity(@RequestBody IdentityDTO identityDTO);
+
+
+	@RequestMapping(value = "/personaldata/{employeeId}", method = RequestMethod.DELETE)
+	public String deletePersonalData(@PathVariable int employeeId);
+	
+	
+	
+
 }

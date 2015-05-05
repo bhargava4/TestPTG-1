@@ -27,7 +27,7 @@ public class Identity {
 	private String employeeStatus;
 	
 	@Column(name="AlternateEmployeeID")
-	private int AlternateEmployeeID;
+	private int alternateEmployeeID;
 	
 	public int getIdentityID() {
 		return identityID;
@@ -62,11 +62,11 @@ public class Identity {
 	}
 
 	public int getAlternateEmployeeID() {
-		return AlternateEmployeeID;
+		return alternateEmployeeID;
 	}
 
 	public void setAlternateEmployeeID(int alternateEmployeeID) {
-		AlternateEmployeeID = alternateEmployeeID;
+		this.alternateEmployeeID = alternateEmployeeID;
 	}
 
 	public String getCitizenshipStatus() {
