@@ -16,6 +16,8 @@ import com.trinet.aboutme.beans.Name;
 import com.trinet.aboutme.beans.PersonalData;
 import com.trinet.aboutme.dao.EmployeeInfoDAO;
 import com.trinet.aboutme.dtos.AddressDTO;
+import com.trinet.aboutme.dtos.ContactDTO;
+import com.trinet.aboutme.dtos.NameDTO;
 
 public class EmployeeInfoDAOImpl extends HibernateDaoSupport implements
 		EmployeeInfoDAO {
@@ -122,6 +124,103 @@ public class EmployeeInfoDAOImpl extends HibernateDaoSupport implements
 		 criteria.add(Restrictions.eq("addressID", addrId));
 		List<Address> addressList = (List<Address>)getHibernateTemplate().findByCriteria(criteria);
 		return addressList;
+	}
+	
+	@Override
+	public List<Contact> maintaniContact(ContactDTO contactDTO) {
+		List<Contact> contactList = getContactByContactId(contactDTO.getContactID());
+		Contact contact= new Contact();
+		if(CollectionUtils.isNotEmpty(contactList))
+		{
+			contact =  contactList.get(0);
+		}
+		populateContact(contactDTO, contact);
+		getHibernateTemplate().saveOrUpdate(contact);
+		return getContact(contact.getContactID());
+	}
+	
+	private void populateContact(ContactDTO contactDTO, Contact contact) {
+		if(contactDTO.getContactID()!=0){
+		contact.setContactID(contactDTO.getContactID());
+		}
+		if(contactDTO.getEmployeeID()!=0)
+		{
+			contact.setEmployeeID(contactDTO.getEmployeeID());
+		}
+		if(!contactDTO.getAccessType().isEmpty()){
+			contact.setAccessType(contactDTO.getAccessType());
+		}
+		if(!contactDTO.getMedia().isEmpty()){
+			contact.setMedia(contactDTO.getMedia());
+		}
+		if(contactDTO.getTelephoneNo()!=0){
+			contact.setTelephoneNo(contactDTO.getTelephoneNo());
+		}
+		if(!contactDTO.getEmail().isEmpty()){
+			contact.setEmail(contactDTO.getEmail());
+		}
+		
+	}
+	
+	public List<Contact> getContactByContactId(Integer ctactId) {
+		 DetachedCriteria criteria = DetachedCriteria
+				.forClass(Contact.class);
+		 criteria.add(Restrictions.eq("contactID", ctactId));
+		List<Contact> contactList = (List<Contact>)getHibernateTemplate().findByCriteria(criteria);
+		return contactList;
+	}
+	
+	@Override
+	public List<Name> maintaniName(NameDTO nameDTO) {
+		List<Name> nameList = getNameByNameId(nameDTO.getNameID());
+		Name name= new Name();
+		if(CollectionUtils.isNotEmpty(nameList))
+		{
+			name =  nameList.get(0);
+		}
+		populateName(nameDTO, name);
+		getHibernateTemplate().saveOrUpdate(name);
+		return getName(name.getNameID());
+	}
+	
+	private void populateName(NameDTO nameDTO, Name name) {
+		if(nameDTO.getNameID()!=0){
+			name.setNameID(nameDTO.getNameID());
+		}
+		if(!nameDTO.getName().isEmpty()){
+			name.setName(nameDTO.getName());
+		}
+		if(nameDTO.getEmployeeID()!=0)
+		{
+			name.setEmployeeID(nameDTO.getEmployeeID());
+		}
+		if(!nameDTO.getFormofaddress().isEmpty()){
+			name.setFormofaddress(nameDTO.getFormofaddress());
+		}
+		if(!nameDTO.getFirstName().isEmpty()){
+			name.setFirstName(nameDTO.getFirstName());
+		}
+		if(!nameDTO.getLastName().isEmpty()){
+			name.setLastName(nameDTO.getLastName());
+		}
+		if(!nameDTO.getMiddleName().isEmpty()){
+			name.setMiddleName(nameDTO.getMiddleName());
+		}
+		if(!nameDTO.getSuffix().isEmpty()){
+			name.setSuffix(nameDTO.getSuffix());
+		}
+		if(!nameDTO.getNameType().isEmpty()){
+			name.setNameType(nameDTO.getNameType());
+		}
+		
+	}
+	
+	public List<Name> getNameByNameId(Integer nId) {
+		 DetachedCriteria criteria = DetachedCriteria
+				.forClass(Name.class);
+		 criteria.add(Restrictions.eq("nameID", nId));
+		List<Name> nameList = (List<Name>)getHibernateTemplate().findByCriteria(criteria);
+		return nameList;
 	}
 
 }

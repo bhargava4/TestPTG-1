@@ -104,4 +104,29 @@ public class EmployeeInfoServiceImpl implements EmployeeInfoService {
 		}
 		return addressDTOList;
 	}
+	
+	@Override
+	public List<ContactDTO> maintainContact(ContactDTO contactDTO) {
+		List<ContactDTO> contactDTOList = new ArrayList<ContactDTO>();
+		List<Contact> contactList = employeeInfoDAO.maintaniContact(contactDTO);
+		for (Contact contact : contactList) {
+			ContactDTO contactDTOTemp = new ContactDTO(); 
+			BeanUtils.copyProperties(contact, contactDTOTemp);
+			contactDTOList.add(contactDTOTemp);
+		}
+		return contactDTOList;
+	}
+
+
+	@Override
+	public List<NameDTO> maintainName(NameDTO nameDTO) {
+		List<NameDTO> nameDTOList = new ArrayList<NameDTO>();
+		List<Name> nameList = employeeInfoDAO.maintaniName(nameDTO);
+		for (Name name : nameList) {
+			NameDTO nameDTOTemp = new NameDTO(); 
+			BeanUtils.copyProperties(name, nameDTOTemp);
+			nameDTOList.add(nameDTOTemp);
+		}
+		return nameDTOList;
+	}
 }
