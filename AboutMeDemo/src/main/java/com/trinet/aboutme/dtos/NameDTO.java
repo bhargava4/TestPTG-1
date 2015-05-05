@@ -2,8 +2,9 @@ package com.trinet.aboutme.dtos;
 
 import java.sql.Date;
 
-import javax.persistence.Column;
+import org.codehaus.jackson.annotate.JsonAutoDetect;
 
+@JsonAutoDetect
 public class NameDTO {
 
 private int nameID;
@@ -12,7 +13,7 @@ private int nameID;
 	
 	private int employeeID;
 	
-	private Date effectiveDate;
+	private String effectiveDate;
 	
 	private String formofaddress;
 	
@@ -48,13 +49,7 @@ private int nameID;
 		this.employeeID = employeeID;
 	}
 
-	public Date getEffectiveDate() {
-		return effectiveDate;
-	}
-
-	public void setEffectiveDate(Date effectiveDate) {
-		this.effectiveDate = effectiveDate;
-	}
+	
 
 	public String getFormofaddress() {
 		return formofaddress;
@@ -62,6 +57,14 @@ private int nameID;
 
 	public void setFormofaddress(String formofaddress) {
 		this.formofaddress = formofaddress;
+	}
+
+	public String getEffectiveDate() {
+		return effectiveDate;
+	}
+
+	public void setEffectiveDate(String effectiveDate) {
+		this.effectiveDate = effectiveDate;
 	}
 
 	public String getFirstName() {

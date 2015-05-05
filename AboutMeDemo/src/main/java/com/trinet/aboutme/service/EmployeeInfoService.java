@@ -11,9 +11,25 @@ import com.trinet.aboutme.dtos.PersonalDataDTO;
 public interface EmployeeInfoService {
 
 	List<AddressDTO> getAddress(Integer employeeId);
-List<ContactDTO> getContact(Integer employeeId);
+
+	List<ContactDTO> getContact(Integer employeeId);
+
 	List<NameDTO> getName(Integer employeeId);
+
 	List<IdentityDTO> getIdentity(Integer employeeId);
+
 	List<PersonalDataDTO> getPersonalData(Integer employeeId);
+
 	List<AddressDTO> maintainAddress(AddressDTO addressDTO);
+
+	List<ContactDTO> maintainContact(ContactDTO contactDTO);
+	
+	List<NameDTO> maintainName(NameDTO nameDTO);
+	
+	List<PersonalDataDTO> maintainPersonalData(PersonalDataDTO personalDataDTO);
+	
+	List<IdentityDTO>maintainIdentity(IdentityDTO identityDTO);
+
+
+	String deletePersonalData(Integer employeeId);
 }

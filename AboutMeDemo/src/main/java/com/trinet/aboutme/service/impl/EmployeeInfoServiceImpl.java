@@ -104,4 +104,61 @@ public class EmployeeInfoServiceImpl implements EmployeeInfoService {
 		}
 		return addressDTOList;
 	}
+	
+	@Override
+	public List<ContactDTO> maintainContact(ContactDTO contactDTO) {
+		List<ContactDTO> contactDTOList = new ArrayList<ContactDTO>();
+		List<Contact> contactList = employeeInfoDAO.maintaniContact(contactDTO);
+		for (Contact contact : contactList) {
+			ContactDTO contactDTOTemp = new ContactDTO(); 
+			BeanUtils.copyProperties(contact, contactDTOTemp);
+			contactDTOList.add(contactDTOTemp);
+		}
+		return contactDTOList;
+	}
+
+
+	@Override
+	public List<NameDTO> maintainName(NameDTO nameDTO) {
+		List<NameDTO> nameDTOList = new ArrayList<NameDTO>();
+		List<Name> nameList = employeeInfoDAO.maintaniName(nameDTO);
+		for (Name name : nameList) {
+			NameDTO nameDTOTemp = new NameDTO(); 
+			BeanUtils.copyProperties(name, nameDTOTemp);
+			nameDTOList.add(nameDTOTemp);
+		}
+		return nameDTOList;
+	}
+
+
+	@Override
+	public List<PersonalDataDTO> maintainPersonalData(PersonalDataDTO personalDataDTO) {
+			List<PersonalDataDTO> personalDataDTOList = new ArrayList<PersonalDataDTO>();
+			List<PersonalData> personalDataList = employeeInfoDAO.maintaniPersonalData(personalDataDTO);
+			for (PersonalData personalData : personalDataList) {
+				PersonalDataDTO personalDataDTOTemp = new PersonalDataDTO(); 
+				BeanUtils.copyProperties(personalData, personalDataDTOTemp);
+				personalDataDTOList.add(personalDataDTOTemp);
+			}
+			return personalDataDTOList;
+	}
+	
+	@Override
+	public List<IdentityDTO> maintainIdentity(IdentityDTO identityDTO) {
+		List<IdentityDTO> identityDTOList = new ArrayList<IdentityDTO>();
+		List<Identity> identityList = employeeInfoDAO.maintaniIdentity(identityDTO);
+		for (Identity identity : identityList) {
+			IdentityDTO identityDTOTemp = new IdentityDTO(); 
+			BeanUtils.copyProperties(identity, identityDTOTemp);
+			identityDTOList.add(identityDTOTemp);
+		}
+		return identityDTOList;
+	}
+
+
+	@Override
+	public String deletePersonalData(Integer employeeId) {
+		String status = employeeInfoDAO.deletePersonalData(employeeId);
+		return status;
+	}
 }

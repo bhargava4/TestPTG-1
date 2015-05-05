@@ -29,7 +29,7 @@ public class Name {
 	private int employeeID;
 	
 	@Column(name="effectiveDate")
-	private Date effectiveDate;
+	private String effectiveDate;
 	
 	@Column(name="formofaddress")
 	private String formofaddress;
@@ -73,11 +73,12 @@ public class Name {
 		this.employeeID = employeeID;
 	}
 
-	public Date getEffectiveDate() {
+
+	public String getEffectiveDate() {
 		return effectiveDate;
 	}
 
-	public void setEffectiveDate(Date effectiveDate) {
+	public void setEffectiveDate(String effectiveDate) {
 		this.effectiveDate = effectiveDate;
 	}
 

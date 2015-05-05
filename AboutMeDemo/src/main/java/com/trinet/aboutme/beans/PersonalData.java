@@ -3,8 +3,6 @@
  */
 package com.trinet.aboutme.beans;
 
-import java.sql.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -28,7 +26,7 @@ public class PersonalData {
 	private int employeeID;
 	
 	@Column(name="effectiveDate")
-	private Date effectiveDate;
+	private String effectiveDate;
 	
 	@Column(name="gender")
 	private String gender;
@@ -37,7 +35,7 @@ public class PersonalData {
 	private String martialStatus;
 	
 	@Column(name="birthDate")
-	private Date birthDate;
+	private String birthDate;
 	
 	@Column(name="militaryStatus")
 	private String militaryStatus;
@@ -61,13 +59,7 @@ public class PersonalData {
 		this.employeeID = employeeID;
 	}
 
-	public Date getEffectiveDate() {
-		return effectiveDate;
-	}
-
-	public void setEffectiveDate(Date effectiveDate) {
-		this.effectiveDate = effectiveDate;
-	}
+	
 
 	public String getGender() {
 		return gender;
@@ -85,11 +77,20 @@ public class PersonalData {
 		this.martialStatus = martialStatus;
 	}
 
-	public Date getBirthDate() {
+
+	public String getEffectiveDate() {
+		return effectiveDate;
+	}
+
+	public void setEffectiveDate(String effectiveDate) {
+		this.effectiveDate = effectiveDate;
+	}
+
+	public String getBirthDate() {
 		return birthDate;
 	}
 
-	public void setBirthDate(Date birthDate) {
+	public void setBirthDate(String birthDate) {
 		this.birthDate = birthDate;
 	}
 
