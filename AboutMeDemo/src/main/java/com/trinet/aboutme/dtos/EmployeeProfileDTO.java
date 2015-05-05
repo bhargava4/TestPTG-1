@@ -1,5 +1,8 @@
 package com.trinet.aboutme.dtos;
 
+import org.codehaus.jackson.annotate.JsonAutoDetect;
+
+@JsonAutoDetect
 public class EmployeeProfileDTO {
 	
 	private String businessTitle;

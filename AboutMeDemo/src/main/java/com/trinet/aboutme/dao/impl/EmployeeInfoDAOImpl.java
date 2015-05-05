@@ -7,8 +7,6 @@ import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.orm.hibernate4.support.HibernateDaoSupport;
 
-import antlr.StringUtils;
-
 import com.trinet.aboutme.beans.Address;
 import com.trinet.aboutme.beans.Contact;
 import com.trinet.aboutme.beans.Identity;
