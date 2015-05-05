@@ -10,7 +10,10 @@ import org.apache.commons.collections.CollectionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.trinet.aboutme.dtos.AddressDTO;
@@ -105,5 +108,16 @@ public class EmployeeInfoControllerImpl implements EmployeeInfoController {
 		LOGGER.info(" *** end getPersonalData *****");
 		
 		return personalDataDTO;
+	}
+	
+	@Override
+	public AddressDTO maintainAddress(@RequestBody AddressDTO addressDTO) {
+		LOGGER.info(" *** start maintainAddress *****");
+		AddressDTO addrDTO = new AddressDTO();
+		List<AddressDTO> addressList = new ArrayList<AddressDTO>();
+		addressList = employeeInfoService.maintainAddress(addressDTO);
+		LOGGER.info(" *** end maintainAddress *****");
+		return addressDTO;
+		
 	}
 }

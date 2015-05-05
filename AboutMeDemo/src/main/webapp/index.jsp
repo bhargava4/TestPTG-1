@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Trinet Passport Login</title>
 </head>
-<body bgcolor="#4654446">
+<body background="./images/login.jpg">
 <h1 align="center" style="font:"> Trinet Passport Demo </h1>
 </body>
 </html>

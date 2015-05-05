@@ -15,4 +15,5 @@ List<ContactDTO> getContact(Integer employeeId);
 	List<NameDTO> getName(Integer employeeId);
 	List<IdentityDTO> getIdentity(Integer employeeId);
 	List<PersonalDataDTO> getPersonalData(Integer employeeId);
+	List<AddressDTO> maintainAddress(AddressDTO addressDTO);
 }
