@@ -14,9 +14,9 @@ public class EmergencyContactDTO {
 
 	private Integer emergencyContactId;
 	private String contactName;
-	private Boolean isPrimaryContact;
+	private Boolean primaryContact;
 	private String relationship;
-	private Boolean isSameAdressAsEmp;
+	private Boolean sameAdressAsEmp;
 	private String country;
 	private String addressLine1;
 	private String addressLine2;
@@ -57,14 +57,14 @@ public class EmergencyContactDTO {
 	/**
 	 * @return the isPrimaryContact
 	 */
-	public Boolean isPrimaryContact() {
-		return isPrimaryContact;
+	public Boolean getPrimaryContact() {
+		return primaryContact;
 	}
 	/**
 	 * @param isPrimaryContact the isPrimaryContact to set
 	 */
 	public void setPrimaryContact(Boolean isPrimaryContact) {
-		this.isPrimaryContact = isPrimaryContact;
+		this.primaryContact = isPrimaryContact;
 	}
 	/**
 	 * @return the relationship
@@ -81,14 +81,14 @@ public class EmergencyContactDTO {
 	/**
 	 * @return the isSameAdressAsEmp
 	 */
-	public Boolean isSameAdressAsEmp() {
-		return isSameAdressAsEmp;
+	public Boolean getSameAdressAsEmp() {
+		return sameAdressAsEmp;
 	}
 	/**
 	 * @param isSameAdressAsEmp the isSameAdressAsEmp to set
 	 */
 	public void setSameAdressAsEmp(Boolean isSameAdressAsEmp) {
-		this.isSameAdressAsEmp = isSameAdressAsEmp;
+		this.sameAdressAsEmp = isSameAdressAsEmp;
 	}
 	/**
 	 * @return the country
@@ -177,7 +177,7 @@ public class EmergencyContactDTO {
 	/**
 	 * @return the samePhoneAsEmp
 	 */
-	public Boolean isSamePhoneAsEmp() {
+	public Boolean getSamePhoneAsEmp() {
 		return samePhoneAsEmp;
 	}
 	/**
