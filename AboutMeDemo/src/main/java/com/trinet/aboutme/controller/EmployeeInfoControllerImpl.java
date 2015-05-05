@@ -133,8 +133,12 @@ public class EmployeeInfoControllerImpl implements EmployeeInfoController {
 
 	@Override
 	public NameDTO maintainName(@RequestBody NameDTO nameDTO) {
-		System.out.println("Hello World");
-		return null;
+		LOGGER.info(" *** start maintainName *****");
+		NameDTO nDTO = new NameDTO();
+		List<NameDTO> nameList = new ArrayList<NameDTO>();
+		nameList = employeeInfoService.maintainName(nameDTO);
+		LOGGER.info(" *** end maintainName *****");
+		return nameDTO;
 	}
 
 	
