@@ -15,6 +15,7 @@ import com.trinet.aboutme.dtos.EmergencyContactDTO;
 @RequestMapping("/emergencyContact")
 public interface EmergencyContactController {
 
+	
 	@RequestMapping(value="/contactDetails/{employeeNo}", method=RequestMethod.GET)
 	List<EmergencyContactDTO> getEmergencyContacts(@PathVariable int employeeNo);
 }

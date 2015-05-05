@@ -8,8 +8,9 @@ import org.springframework.orm.hibernate4.support.HibernateDaoSupport;
 
 import com.trinet.aboutme.beans.Address;
 import com.trinet.aboutme.beans.Contact;
+import com.trinet.aboutme.beans.Identity;
 import com.trinet.aboutme.beans.Name;
-
+import com.trinet.aboutme.beans.PersonalData;
 import com.trinet.aboutme.dao.EmployeeInfoDAO;
 
 public class EmployeeInfoDAOImpl extends HibernateDaoSupport implements
@@ -42,6 +43,23 @@ public class EmployeeInfoDAOImpl extends HibernateDaoSupport implements
 		List<Name> findByCriteria = (List<Name>)getHibernateTemplate().findByCriteria(criteria);
 		return findByCriteria;
 	}
+	
+	@Override
+	public List<Identity> getIdentity(Integer employeeId) {
+		 DetachedCriteria criteria = DetachedCriteria
+					.forClass(Identity.class);
+		 criteria.add(Restrictions.eq("employeeID", employeeId));
+		List<Identity> findByCriteria = (List<Identity>)getHibernateTemplate().findByCriteria(criteria);
+		return findByCriteria;
+	}
 
+	@Override
+	public List<PersonalData> getPersonalData(Integer employeeId) {
+		 DetachedCriteria criteria = DetachedCriteria
+					.forClass(PersonalData.class);
+		 criteria.add(Restrictions.eq("employeeID", employeeId));
+		List<PersonalData> findByCriteria = (List<PersonalData>)getHibernateTemplate().findByCriteria(criteria);
+		return findByCriteria;
+	}
 
 }
