@@ -27,6 +27,7 @@
 				<value>com.trinet.aboutme.beans.Name</value>
 				<value>com.trinet.aboutme.beans.Identity</value>
 				<value>com.trinet.aboutme.beans.PersonalData</value>
+				<value>com.trinet.aboutme.beans.EmployeeProfile</value>
 			</list>
 		</property>
 

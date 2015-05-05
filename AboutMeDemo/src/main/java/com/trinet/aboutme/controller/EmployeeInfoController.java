@@ -42,7 +42,7 @@ public interface EmployeeInfoController {
 	@RequestMapping(value="/personalData/{employeeId}", method=RequestMethod.GET)
 	public PersonalDataDTO getPersonalData(@PathVariable int employeeId);
 	
-	@RequestMapping(value="/address/", method=RequestMethod.PUT, produces="application/json")
+	@RequestMapping(value="/address", method=RequestMethod.PUT, consumes="application/json")
 	public AddressDTO maintainAddress(@RequestBody AddressDTO addressDTO);
 	
 	

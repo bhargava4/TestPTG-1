@@ -95,23 +95,23 @@ public class EmployeeInfoDAOImpl extends HibernateDaoSupport implements
 		if(!addressDTO.getCity().isEmpty()){
 			address.setCity(addressDTO.getCity());
 		}
-		if(!addressDTO.getCountry().isEmpty()){
+		if(null!=addressDTO.getCountry() && !addressDTO.getCountry().isEmpty()){
 			address.setCountry(addressDTO.getCountry());
 		}
 		if(!addressDTO.getCounty().isEmpty()){
 			address.setCounty(addressDTO.getCounty());
 		}
-		if(!addressDTO.getEffectiveDate().isEmpty()){
+		if(null!=addressDTO.getEffectiveDate() && !addressDTO.getEffectiveDate().isEmpty()){
 			address.setEffectiveDate(addressDTO.getEffectiveDate());
 		}
 		if(addressDTO.getEmployeeID()!=0)
 		{
 			address.setEmployeeID(addressDTO.getEmployeeID());
 		}
-		if(!addressDTO.getPostalCode().isEmpty()){
+		if(null!=addressDTO.getPostalCode() && !addressDTO.getPostalCode().isEmpty()){
 			address.setPostalCode(addressDTO.getPostalCode());
 		}
-		if(!addressDTO.getStateOrProvince().isEmpty()){
+		if(null!=addressDTO.getStateOrProvince() && !addressDTO.getStateOrProvince().isEmpty()){
 			address.setStateOrProvince(addressDTO.getStateOrProvince());
 		}
 	}
