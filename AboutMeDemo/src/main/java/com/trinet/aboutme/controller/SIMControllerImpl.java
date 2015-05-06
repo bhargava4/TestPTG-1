@@ -1,4 +1,4 @@
-package com.trinet.aboutme;
+package com.trinet.aboutme.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
