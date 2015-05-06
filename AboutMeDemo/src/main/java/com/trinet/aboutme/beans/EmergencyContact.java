@@ -25,11 +25,11 @@ public class EmergencyContact {
 	@Column(name="CONTACT_NAME")
 	private String contactName;
 	@Column(name="IS_PRIMARY_CONTACT")
-	private Boolean isPrimaryContact;
+	private Boolean primaryContact;
 	@Column(name="RELATIONSHIP")
 	private String relationship;
 	@Column(name="IS_SAME_ADDRESS_AS_EMP")
-	private Boolean isSameAdressAsEmp;
+	private Boolean sameAdressAsEmp;
 	@Column(name="COUNTRY")
 	private String country;
 	@Column(name="ADDRESS_LINE_1")
@@ -84,14 +84,14 @@ public class EmergencyContact {
 	/**
 	 * @return the isPrimaryContact
 	 */
-	public Boolean isPrimaryContact() {
-		return isPrimaryContact;
+	public Boolean getPrimaryContact() {
+		return primaryContact;
 	}
 	/**
 	 * @param isPrimaryContact the isPrimaryContact to set
 	 */
 	public void setPrimaryContact(Boolean isPrimaryContact) {
-		this.isPrimaryContact = isPrimaryContact;
+		this.primaryContact = isPrimaryContact;
 	}
 	/**
 	 * @return the relationship
@@ -108,14 +108,14 @@ public class EmergencyContact {
 	/**
 	 * @return the isSameAdressAsEmp
 	 */
-	public Boolean isSameAdressAsEmp() {
-		return isSameAdressAsEmp;
+	public Boolean getSameAdressAsEmp() {
+		return sameAdressAsEmp;
 	}
 	/**
 	 * @param isSameAdressAsEmp the isSameAdressAsEmp to set
 	 */
 	public void setSameAdressAsEmp(Boolean isSameAdressAsEmp) {
-		this.isSameAdressAsEmp = isSameAdressAsEmp;
+		this.sameAdressAsEmp = isSameAdressAsEmp;
 	}
 	/**
 	 * @return the country
@@ -204,7 +204,7 @@ public class EmergencyContact {
 	/**
 	 * @return the samePhoneAsEmp
 	 */
-	public Boolean isSamePhoneAsEmp() {
+	public Boolean getSamePhoneAsEmp() {
 		return samePhoneAsEmp;
 	}
 	/**

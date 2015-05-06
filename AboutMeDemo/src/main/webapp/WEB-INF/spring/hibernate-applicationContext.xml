@@ -28,13 +28,18 @@
 				<value>com.trinet.aboutme.beans.Identity</value>
 				<value>com.trinet.aboutme.beans.PersonalData</value>
 				<value>com.trinet.aboutme.beans.EmployeeProfile</value>
+				<value>com.trinet.aboutme.beans.SIMDetails</value>
+				<value>com.trinet.aboutme.beans.SIMPassword</value>
+				<value>com.trinet.aboutme.beans.SIMRoles</value>
+				<value>com.trinet.aboutme.beans.SIMSecret</value>
+				<value>com.trinet.aboutme.beans.EmployeeOptions</value>
 			</list>
 		</property>
 
 		<property name="hibernateProperties">
 			<props>
 				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
-				<prop key="hibernate.hbm2ddl.auto">create</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
 				<prop key="hibernate.show_sql">true</prop>
 				
 			</props>

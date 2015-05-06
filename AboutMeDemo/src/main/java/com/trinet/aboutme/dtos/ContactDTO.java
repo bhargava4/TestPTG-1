@@ -1,6 +1,9 @@
 
 package com.trinet.aboutme.dtos;
 
+import org.codehaus.jackson.annotate.JsonAutoDetect;
+
+@JsonAutoDetect
 public class ContactDTO {
 	
 	private int contactID;

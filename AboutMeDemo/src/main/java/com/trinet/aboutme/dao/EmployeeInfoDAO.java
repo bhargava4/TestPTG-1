@@ -8,6 +8,10 @@ import com.trinet.aboutme.beans.Identity;
 import com.trinet.aboutme.beans.Name;
 import com.trinet.aboutme.beans.PersonalData;
 import com.trinet.aboutme.dtos.AddressDTO;
+import com.trinet.aboutme.dtos.ContactDTO;
+import com.trinet.aboutme.dtos.IdentityDTO;
+import com.trinet.aboutme.dtos.NameDTO;
+import com.trinet.aboutme.dtos.PersonalDataDTO;
 public interface EmployeeInfoDAO {
 	
 	List<Address> getAddress(Integer employeeId);
@@ -21,6 +25,16 @@ public interface EmployeeInfoDAO {
 	List<PersonalData> getPersonalData(Integer employeeId);
 
 	List<Address> maintaniAddress(AddressDTO addressDTO);
+	
+	List<Contact> maintaniContact(ContactDTO contactDTO);
+	
+	List<Name> maintaniName(NameDTO nameDTO);
+	
+	List<PersonalData> maintaniPersonalData(PersonalDataDTO personalDataDTO);
+	
+	List<Identity> maintaniIdentity(IdentityDTO identityDTO);
+
+	String deletePersonalData(Integer employeeId);
 
 
 }

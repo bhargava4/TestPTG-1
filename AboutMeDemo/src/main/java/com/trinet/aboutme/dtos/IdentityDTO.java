@@ -19,7 +19,17 @@ public class IdentityDTO {
 	
 	private String employeeStatus;
 	
-	private int AlternateEmployeeID;
+	private int alternateEmployeeID;
+	
+	private String citizenshipStatus;
+
+	public String getCitizenshipStatus() {
+		return citizenshipStatus;
+	}
+
+	public void setCitizenshipStatus(String citizenshipStatus) {
+		this.citizenshipStatus = citizenshipStatus;
+	}
 
 	public int getIdentityID() {
 		return identityID;
@@ -54,10 +64,10 @@ public class IdentityDTO {
 	}
 
 	public int getAlternateEmployeeID() {
-		return AlternateEmployeeID;
+		return alternateEmployeeID;
 	}
 
 	public void setAlternateEmployeeID(int alternateEmployeeID) {
-		AlternateEmployeeID = alternateEmployeeID;
+		alternateEmployeeID = alternateEmployeeID;
 	}
 }
