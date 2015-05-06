@@ -13,16 +13,16 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
- * This class provided utility for downloading different forms
+ * This class provides utility for downloading different forms
  *
- * @author Swapna Ayyalraju
+ * @author Swapna Ayyalaraju
  * @version 1.0
  */
 @Controller
 @RequestMapping("/EmpFormsAPI")
-public class EmployeeFromController {
+public class EmployeeFormController {
 
-	static final Logger logger = Logger.getLogger(EmployeeFromController.class);
+	static final Logger logger = Logger.getLogger(EmployeeFormController.class);
 	/**
 	   * this method finds the PDF from realpath and returns the byte code.
 	   * @param  module_name String
@@ -30,11 +30,11 @@ public class EmployeeFromController {
 	   * @param file_name String
 	   * @return  void 
 	   */
-	@RequestMapping(value = "/{module_name}/{emp_no}",produces="application/pdf")
+	@RequestMapping(value = "/{file_name}/{emp_no}",produces="application/pdf")
 	public void getFile(
-		   @PathVariable("module_name") String moduleName,
+		    @PathVariable("file_name") String fileName,
 		    HttpServletResponse response,HttpServletRequest request,@PathVariable("emp_no") String employeeNo) {
-		    String filePath =  "/reports/"+moduleName+"/"+moduleName+".pdf";
+		    String filePath =  "/reports/"+fileName+".pdf";
 		    ServletContext context = request.getServletContext();
 	        String appPath = context.getRealPath("");
 	        System.out.println("appPath =====>" + appPath);
@@ -58,7 +58,7 @@ public class EmployeeFromController {
 	        // set headers for the response
 	        String headerKey = "Content-Disposition";
 	        String headerValue = String.format("attachment; filename=\"%s\"",
-	        		moduleName+".pdf");
+	                fileName+".pdf");
 	        response.setHeader(headerKey, headerValue);
 	       
 	        // get output stream of the response
