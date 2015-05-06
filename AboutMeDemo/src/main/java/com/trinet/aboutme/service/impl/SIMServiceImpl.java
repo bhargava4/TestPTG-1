@@ -39,7 +39,7 @@ public class SIMServiceImpl implements SIMService{
 		int empId = passwordDTO.getEmpId();
 		String newPassword = passwordDTO.getNewPassword();
 		String currentPwd = simDao.getCurrentPassword(empId);
-		int update = 1;
+		int update = 0;
 		if(currentPwd.equals(passwordDTO.getCurrentPassword())){
 			update = simDao.updatePassword(empId, newPassword);
 		}
@@ -51,21 +51,6 @@ public class SIMServiceImpl implements SIMService{
 	
 	public String insertRoles(RolesDTO rolesDTO){
 		String updateStatus = "Success";
-		/*int empId = rolesDTO.getEmpId();
-	
-		List<Roll> newRoles = rolesDTO.getRoleNames();
-		List<SIMRoles> rolesList = new ArrayList<SIMRoles>();
-		SIMRoles simRoles ;
-		for(Roll roll : newRoles){
-			simRoles = new SIMRoles();
-			simRoles.setEmpId(empId);
-			simRoles.setEmpRole(roll.getRoll());
-			rolesList.add(simRoles);
-		}*/
-		/*String roleNames = "" ;
-		for(Roll role  : newRoles){
-			roleNames = roleNames+role.getRoll()+",";
-		}*/
 		List<SIMRoles> rolesList = getEmpRoleList(rolesDTO);
 		try{
 			// temporary code. Need to modify
@@ -74,11 +59,9 @@ public class SIMServiceImpl implements SIMService{
 				simDao.insertRoles(role);
 			}
 		}catch(Exception e){
+			updateStatus = "Failure";
 			e.printStackTrace();
 		}
-		/*if(update < 1){
-			updateStatus = "Failure";
-		}*/
 		return updateStatus;
 	}
 	
