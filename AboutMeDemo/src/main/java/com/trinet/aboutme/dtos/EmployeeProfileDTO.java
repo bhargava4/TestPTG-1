@@ -17,6 +17,15 @@ public class EmployeeProfileDTO {
 	private String compensationBasis;
 	private String comprate;
 	private String standardHours;
+	private int profileId;
+	
+	
+	public int getProfileId() {
+		return profileId;
+	}
+	public void setProfileId(int profileId) {
+		this.profileId = profileId;
+	}
 	public String getBusinessTitle() {
 		return businessTitle;
 	}
