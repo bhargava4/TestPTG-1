@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- Root Context: defines shared resources visible to all other web components -->
+	
+	<!--  Service Configurations -->
+	<bean id="simService" class="com.trinet.aboutme.service.impl.SIMServiceImpl">
+		<property name="simDao" ref="simDao" />
+	</bean>
+	
+	<!--  DAO Configurations -->
+	<bean id="simDao" class="com.trinet.aboutme.dao.impl.SIMDaoImpl">
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+	</bean>
+		
+		
+</beans>
