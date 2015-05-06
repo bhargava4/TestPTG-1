@@ -6,50 +6,53 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 /**
- * @author Shravan
+ * @author Ramya
  *
  */
 @Entity
-@Table(name="EmployeeProfile")
+@Table(name = "employeeprofile")
 public class EmployeeProfile {
 	@Id
-	@Column(name="profileId")
+	@Column(name = "EmployeProfileId")
 	private int profileId;
-	
-	@Column(name="business title")
+
+	@Column(name = "EmployeeNo")
+	private int employeeNo;
+
+	@Column(name = "BusinessTitle")
 	private String businessTitle;
-	
-	@Column(name="service date")
+
+	@Column(name = "ServiceDate")
 	private String serviceDate;
-	
-	@Column(name="work phone")
+
+	@Column(name = "WorkPhone")
 	private String workPhone;
-	
-	@Column(name="work email")
+
+	@Column(name = "WorkEmail")
 	private String workEmail;
-	
-	@Column(name="department")
+
+	@Column(name = "Department")
 	private String department;
 
-	@Column(name="location")
+	@Column(name = "Location")
 	private String location;
-	
-	@Column(name="reports to")
+
+	@Column(name = "ReportsTo")
 	private String reportsTo;
-	
-	@Column(name="employeeType")
+
+	@Column(name = "EmployeeType")
 	private String employeeType;
-	
-	@Column(name="temporary indicator")
+
+	@Column(name = "TemporaryIndicator")
 	private String temporaryIndicator;
-	
-	@Column(name="compensation basis")
+
+	@Column(name = "CompensationBasis")
 	private String compensationBasis;
-	
-	@Column(name="comprate")
+
+	@Column(name = "Comprate")
 	private String comprate;
-	
-	@Column(name="standard hours")
+
+	@Column(name = "StandardHours")
 	private String standardHours;
 
 	public int getProfileId() {
@@ -155,6 +158,12 @@ public class EmployeeProfile {
 	public void setStandardHours(String standardHours) {
 		this.standardHours = standardHours;
 	}
-	
-	
+
+	public int getEmployeeNo() {
+		return employeeNo;
+	}
+
+	public void setEmployeeNo(int employeeNo) {
+		this.employeeNo = employeeNo;
+	}
 }
