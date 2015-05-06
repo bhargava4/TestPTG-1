@@ -123,7 +123,7 @@ public class EmployeeInfoControllerImpl implements EmployeeInfoController {
 
 	@Override
 	public ContactDTO maintainContact(@RequestBody ContactDTO contactDTO) {
-		LOGGER.info(" *** start maintainContact *****");
+		System.out.println(" *** start maintainContact *****");
 		ContactDTO ctactDTO = new ContactDTO();
 		List<ContactDTO> contactList = new ArrayList<ContactDTO>();
 		contactList = employeeInfoService.maintainContact(contactDTO);

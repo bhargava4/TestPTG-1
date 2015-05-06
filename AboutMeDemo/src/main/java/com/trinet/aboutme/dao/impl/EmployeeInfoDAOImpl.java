@@ -88,8 +88,8 @@ public class EmployeeInfoDAOImpl extends HibernateDaoSupport implements
 		if(!addressDTO.getAddressLine2().isEmpty()){
 		address.setAddressLine2(addressDTO.getAddressLine2());
 		}
-		if(!addressDTO.getAddressLine3().isEmpty()){
-		address.setAddressLine3(addressDTO.getAddressLine3());
+		if(addressDTO.getAddressLine3() != null && !addressDTO.getAddressLine3().isEmpty()){
+			address.setAddressLine3(addressDTO.getAddressLine3());
 		}
 		if(!addressDTO.getAddressType().isEmpty()){
 		address.setAddressType(addressDTO.getAddressType());
