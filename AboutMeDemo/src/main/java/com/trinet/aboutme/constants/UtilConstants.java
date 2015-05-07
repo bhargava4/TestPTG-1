@@ -53,4 +53,6 @@ public interface UtilConstants {
 	
 	String ca_bc="British Columbia";
 	String ca_on="Ontario";
+	String FAILURE ="Fail";
+	String SUCCESS= "Success";
 }

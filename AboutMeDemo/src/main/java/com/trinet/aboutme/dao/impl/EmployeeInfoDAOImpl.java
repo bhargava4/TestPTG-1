@@ -1,5 +1,6 @@
 package com.trinet.aboutme.dao.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.collections.CollectionUtils;
@@ -136,7 +137,7 @@ public class EmployeeInfoDAOImpl extends HibernateDaoSupport implements
 		}
 		populateContact(contactDTO, contact);
 		getHibernateTemplate().saveOrUpdate(contact);
-		return getContact(contact.getContactID());
+		return getContactByContactId(contact.getContactID());
 	}
 	
 	private void populateContact(ContactDTO contactDTO, Contact contact) {
@@ -180,7 +181,7 @@ public class EmployeeInfoDAOImpl extends HibernateDaoSupport implements
 		}
 		populateName(nameDTO, name);
 		getHibernateTemplate().saveOrUpdate(name);
-		return getName(name.getNameID());
+		return getNameByNameId(name.getNameID());
 	}
 	
 	private void populateName(NameDTO nameDTO, Name name) {
@@ -233,7 +234,7 @@ public class EmployeeInfoDAOImpl extends HibernateDaoSupport implements
 		}
 		populatePersonalData(personalDataDTO, personalData);
 		getHibernateTemplate().saveOrUpdate(personalData);
-		return getPersonalData(personalData.getPersonalID());
+		return getPersonalDataByPersonalDataId(personalData.getPersonalID());
 	}
 	
 	
@@ -269,8 +270,13 @@ public class EmployeeInfoDAOImpl extends HibernateDaoSupport implements
 	public List<PersonalData> getPersonalDataByPersonalDataId(Integer pDataId) {
 		 DetachedCriteria criteria = DetachedCriteria
 				.forClass(PersonalData.class);
+		 List<PersonalData> personalDataList = new ArrayList<PersonalData>();
 		 criteria.add(Restrictions.eq("personalID", pDataId));
-		List<PersonalData> personalDataList = (List<PersonalData>)getHibernateTemplate().findByCriteria(criteria);
+		 try{
+		 personalDataList = (List<PersonalData>)getHibernateTemplate().findByCriteria(criteria);
+		 }catch(Exception ex){
+			 
+		 }
 		return personalDataList;
 	}
 

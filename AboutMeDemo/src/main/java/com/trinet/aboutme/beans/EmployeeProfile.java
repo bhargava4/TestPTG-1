@@ -2,6 +2,7 @@ package com.trinet.aboutme.beans;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -13,6 +14,7 @@ import javax.persistence.Table;
 @Table(name = "employeeprofile")
 public class EmployeeProfile {
 	@Id
+	@GeneratedValue
 	@Column(name = "EmployeProfileId")
 	private int profileId;
 

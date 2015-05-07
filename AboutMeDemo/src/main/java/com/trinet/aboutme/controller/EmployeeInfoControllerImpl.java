@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.trinet.aboutme.constants.UtilConstants;
 import com.trinet.aboutme.dtos.AddressDTO;
 import com.trinet.aboutme.dtos.ContactDTO;
 import com.trinet.aboutme.dtos.IdentityDTO;
@@ -111,56 +112,74 @@ public class EmployeeInfoControllerImpl implements EmployeeInfoController {
 	}
 
 	@Override
-	public AddressDTO maintainAddress(@RequestBody AddressDTO addressDTO) {
+	public String maintainAddress(@RequestBody AddressDTO addressDTO) {
 		LOGGER.info(" *** start maintainAddress *****");
-		AddressDTO addrDTO = new AddressDTO();
 		List<AddressDTO> addressList = new ArrayList<AddressDTO>();
+		String status = UtilConstants.FAILURE;
 		addressList = employeeInfoService.maintainAddress(addressDTO);
+		if (CollectionUtils.isNotEmpty(addressList)) {
+			status = UtilConstants.SUCCESS;
+		}
 		LOGGER.info(" *** end maintainAddress *****");
-		return addressDTO;
+		return status;
 
 	}
 
 	@Override
-	public ContactDTO maintainContact(@RequestBody ContactDTO contactDTO) {
-		System.out.println(" *** start maintainContact *****");
-		ContactDTO ctactDTO = new ContactDTO();
+	public String maintainContact(@RequestBody ContactDTO contactDTO) {
+		LOGGER.info(" *** Start maintainContact *****");
+		String status = UtilConstants.FAILURE;
 		List<ContactDTO> contactList = new ArrayList<ContactDTO>();
 		contactList = employeeInfoService.maintainContact(contactDTO);
+		if (CollectionUtils.isNotEmpty(contactList)) {
+			status = UtilConstants.SUCCESS;
+		}
 		LOGGER.info(" *** end maintainContact *****");
-		return contactDTO;
+		return status;
 	}
 
 	@Override
-	public NameDTO maintainName(@RequestBody NameDTO nameDTO) {
+	public String maintainName(@RequestBody NameDTO nameDTO) {
 		LOGGER.info(" *** start maintainName *****");
-		NameDTO nDTO = new NameDTO();
+		String status = UtilConstants.FAILURE;
 		List<NameDTO> nameList = new ArrayList<NameDTO>();
 		nameList = employeeInfoService.maintainName(nameDTO);
+		if (CollectionUtils.isNotEmpty(nameList)) {
+			status = UtilConstants.SUCCESS;
+		}
+
 		LOGGER.info(" *** end maintainName *****");
-		return nameDTO;
+		return status;
 	}
 
 	@Override
-	public PersonalDataDTO maintainPersonalData(
+	public String maintainPersonalData(
 			@RequestBody PersonalDataDTO personalDataDTO) {
 		LOGGER.info(" *** start maintainPersonalData *****");
-		PersonalDataDTO pDataDTO = new PersonalDataDTO();
+		String status = UtilConstants.FAILURE;
 		List<PersonalDataDTO> personalDataList = new ArrayList<PersonalDataDTO>();
-		personalDataList = employeeInfoService.maintainPersonalData(personalDataDTO);
+		personalDataList = employeeInfoService
+				.maintainPersonalData(personalDataDTO);
+		if (CollectionUtils.isNotEmpty(personalDataList)) {
+			status = UtilConstants.SUCCESS;
+		}
+
 		LOGGER.info(" *** end maintainPersonalData *****");
-		return personalDataDTO;
+		return status;
 	}
-	
+
 	@Override
-	public IdentityDTO maintainIdentity(@RequestBody IdentityDTO identityDTO) {
+	public String maintainIdentity(@RequestBody IdentityDTO identityDTO) {
 		LOGGER.info(" *** start maintainIdentity *****");
-		IdentityDTO idtyDTO = new IdentityDTO();
+		String status = UtilConstants.FAILURE;
 		List<IdentityDTO> identityList = new ArrayList<IdentityDTO>();
 		identityList = employeeInfoService.maintainIdentity(identityDTO);
+		if (CollectionUtils.isNotEmpty(identityList)) {
+			status = UtilConstants.SUCCESS;
+		}
 		LOGGER.info(" *** end maintainIdentity*****");
-		return identityDTO;
-		
+		return status;
+
 	}
 
 	@Override

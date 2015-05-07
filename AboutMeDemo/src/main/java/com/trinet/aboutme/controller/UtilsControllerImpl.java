@@ -95,10 +95,10 @@ public class UtilsControllerImpl implements UtilsController{
 	 * @see com.trinet.aboutme.controller.UtilsController#getStatesListByCountry(java.lang.String)
 	 */
 	@Override
-	public List<SelectItemDTO> getStatesListByCountry(@PathVariable String country) {
-		if("us".equalsIgnoreCase(country))
+	public List<SelectItemDTO> getStatesListByCountry(@PathVariable String countryId) {
+		if("us".equalsIgnoreCase(countryId))
 			return CommonUtils.usstates;
-		else if("ca".equalsIgnoreCase(country))
+		else if("ca".equalsIgnoreCase(countryId))
 			return CommonUtils.castates;
 		return null;
 	}

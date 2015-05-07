@@ -12,10 +12,10 @@ import com.trinet.aboutme.dtos.EmployeeProfileDTO;
  * @author Shravan
  *
  */
-@RequestMapping("/employeeProfileAPI")
+@RequestMapping("/employeeprofileapi")
 public interface EmployeeProfileController {
 	
-	@RequestMapping(value="/workProfile/{employeeNo}", method=RequestMethod.GET, produces="application/json")
+	@RequestMapping(value="/workprofiles/{employeeNo}", method=RequestMethod.GET, produces="application/json")
 	public EmployeeProfileDTO getWorkProfile(@PathVariable int employeeNo);
 
 }

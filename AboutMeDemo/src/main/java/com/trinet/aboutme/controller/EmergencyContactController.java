@@ -13,17 +13,17 @@ import com.trinet.aboutme.dtos.EmergencyContactDTO;
  * @author Bhargava
  *
  */
-@RequestMapping("/emergencyContact")
+@RequestMapping("/emergencycontactapi")
 public interface EmergencyContactController {
 
 	
-	@RequestMapping(value="/contactDetails/{employeeNo}", method=RequestMethod.GET)
+	@RequestMapping(value="/contactdetails/{employeeNo}", method=RequestMethod.GET)
 	List<EmergencyContactDTO> getEmergencyContacts(@PathVariable int employeeNo);
 	
-	@RequestMapping(value="/contactDetails", method=RequestMethod.POST)
+	@RequestMapping(value="/contactdetails", method=RequestMethod.POST)
 	String createEmergencyContact(@RequestBody EmergencyContactDTO contactDTO);
 	
-	@RequestMapping(value="/contactDetails", method=RequestMethod.PUT)
+	@RequestMapping(value="/contactdetails", method=RequestMethod.PUT)
 	String updateEmergencyContact(@RequestBody EmergencyContactDTO contactDTO);
 	
 	

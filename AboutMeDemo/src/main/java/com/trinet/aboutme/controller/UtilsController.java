@@ -42,7 +42,7 @@ public interface UtilsController {
 	@RequestMapping(value="/countries", method=RequestMethod.GET)
 	List<SelectItemDTO> getCountriesList();
 	
-	@RequestMapping(value="/countries/{country}", method=RequestMethod.GET)
-	List<SelectItemDTO> getStatesListByCountry(@PathVariable String country);
+	@RequestMapping(value="/countries/{countryId}", method=RequestMethod.GET)
+	List<SelectItemDTO> getStatesListByCountry(@PathVariable String countryId);
 	
 }
