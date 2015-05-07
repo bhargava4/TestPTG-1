@@ -9,24 +9,22 @@ import com.trinet.aboutme.dtos.PasswordDTO;
 import com.trinet.aboutme.dtos.RolesDTO;
 import com.trinet.aboutme.dtos.SecretDTO;
 
-@RequestMapping("/SIMAPI")
+@RequestMapping("/simapi")
 public interface SIMController {
-	@RequestMapping(value="/cLogin", method=RequestMethod.POST,consumes="application/json")
+	
+	@RequestMapping(value = "/customlogin", method = RequestMethod.POST, consumes = "application/json")
 	String createCustomLogin(@RequestBody CustomDetailsDTO loginDetailsDTO);
-	
-	@RequestMapping(value="/updatePassword", method=RequestMethod.PUT,consumes="application/json")
+
+	@RequestMapping(value = "/password", method = RequestMethod.PUT, consumes = "application/json")
 	String updatePassword(@RequestBody PasswordDTO passwordDTO);
-	
-	@RequestMapping(value="/updateSecret", method=RequestMethod.PUT, consumes="application/json")
+
+	@RequestMapping(value = "/secret", method = RequestMethod.PUT, consumes = "application/json")
 	String updateSecret(@RequestBody SecretDTO secretDTO);
-	
-	@RequestMapping(value="/insertroles", method=RequestMethod.POST)
+
+	@RequestMapping(value = "/roles", method = RequestMethod.POST)
 	String insertRoles(@RequestBody RolesDTO rolesDTO);
-	
-	/*@RequestMapping(value="/deleteRoles", method=RequestMethod.DELETE)
-	String deleteRoles(@RequestBody RolesDTO rolesDTO);*/
-	
-	@RequestMapping(value="/deleteRoles", method=RequestMethod.PUT)
+
+	@RequestMapping(value = "/roles", method = RequestMethod.DELETE)
 	String deleteRoles(@RequestBody RolesDTO rolesDTO);
 
 }

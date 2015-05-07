@@ -19,10 +19,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @version 1.0
  */
 @Controller
-@RequestMapping("/EmpFormsAPI")
-public class EmployeeFormController {
+@RequestMapping("/employeeformsapi")
+public class EmployeeFormsController {
 
-	static final Logger logger = Logger.getLogger(EmployeeFormController.class);
+	static final Logger logger = Logger.getLogger(EmployeeFormsController.class);
 	/**
 	   * this method finds the PDF from realpath and returns the byte code.
 	   * @param  module_name String

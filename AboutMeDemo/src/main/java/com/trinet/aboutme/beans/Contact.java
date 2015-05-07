@@ -5,6 +5,7 @@ package com.trinet.aboutme.beans;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -17,6 +18,7 @@ import javax.persistence.Table;
 public class Contact {
 	
 	@Id
+	@GeneratedValue
 	@Column(name="contactID")
 	private int contactID;
 	

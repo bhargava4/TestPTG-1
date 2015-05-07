@@ -3,10 +3,9 @@
  */
 package com.trinet.aboutme.beans;
 
-import java.sql.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -15,38 +14,39 @@ import javax.persistence.Table;
  *
  */
 @Entity
-@Table(name="name")
+@Table(name = "name")
 public class Name {
-	
+
 	@Id
-	@Column(name="nameID")
+	@GeneratedValue
+	@Column(name = "nameID")
 	private int nameID;
-	
-	@Column(name="name")
+
+	@Column(name = "name")
 	private String name;
-	
-	@Column(name="employeeID")
+
+	@Column(name = "employeeID")
 	private int employeeID;
-	
-	@Column(name="effectiveDate")
+
+	@Column(name = "effectiveDate")
 	private String effectiveDate;
-	
-	@Column(name="formofaddress")
+
+	@Column(name = "formofaddress")
 	private String formofaddress;
-	
-	@Column(name="firstName")
+
+	@Column(name = "firstName")
 	private String firstName;
-	
-	@Column(name="middleName")
+
+	@Column(name = "middleName")
 	private String middleName;
-	
-	@Column(name="suffix")
+
+	@Column(name = "suffix")
 	private String suffix;
-	
-	@Column(name="lastName")
+
+	@Column(name = "lastName")
 	private String lastName;
-	
-	@Column(name="nameType")
+
+	@Column(name = "nameType")
 	private String nameType;
 
 	public int getNameID() {
@@ -72,7 +72,6 @@ public class Name {
 	public void setEmployeeID(int employeeID) {
 		this.employeeID = employeeID;
 	}
-
 
 	public String getEffectiveDate() {
 		return effectiveDate;
