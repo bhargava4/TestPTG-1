@@ -16,7 +16,7 @@ public interface EmployeeInfoService {
 
 	List<NameDTO> getName(Integer employeeId);
 
-	List<IdentityDTO> getIdentity(Integer employeeId);
+	List<IdentityDTO> getIdentityByEmployee(Integer employeeId);
 
 	List<PersonalDataDTO> getPersonalData(Integer employeeId);
 

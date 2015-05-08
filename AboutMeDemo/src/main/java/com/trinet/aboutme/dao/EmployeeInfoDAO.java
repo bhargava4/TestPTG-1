@@ -20,7 +20,9 @@ public interface EmployeeInfoDAO {
 
 	List<Name> getName(Integer employeeId);
 	
-	List<Identity> getIdentity(Integer employeeId);
+	List<Identity> getIdentity(Integer identityId);
+	
+	List<Identity> getIdentityByEmployee(Integer employeeId);
 	
 	List<PersonalData> getPersonalData(Integer employeeId);
 

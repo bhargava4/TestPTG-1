@@ -3,13 +3,13 @@
  */
 package com.trinet.aboutme.dtos;
 
-import javax.persistence.Column;
+import com.trinet.aboutme.beans.SuccessResponse;
 
 /**
  * @author Keerthi
  *
  */
-public class IdentityDTO {
+public class IdentityDTO{
 
 	private int identityID;
 	

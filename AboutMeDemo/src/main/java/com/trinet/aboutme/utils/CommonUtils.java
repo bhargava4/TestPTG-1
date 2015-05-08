@@ -6,6 +6,8 @@ package com.trinet.aboutme.utils;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.trinet.aboutme.beans.ErrorResponse;
+import com.trinet.aboutme.beans.SuccessResponse;
 import com.trinet.aboutme.constants.UtilConstants;
 import com.trinet.aboutme.dtos.SelectItemDTO;
 
@@ -85,4 +87,19 @@ public class CommonUtils {
 		
 	}
 	
+	public static Object sendErrorDetails(String errorMessage) {
+		ErrorResponse errorDetails=new ErrorResponse();
+		errorDetails.setErrorCode("500");
+		errorDetails.setErrorDetails(errorMessage);		
+		return errorDetails;
+	}
+
+	public static Object updatedSuccessfully(String successMessage,Integer EmployeeId,Integer ID) {
+		SuccessResponse responseJson=new SuccessResponse();
+		responseJson.setRespnoseCode("400");
+		responseJson.setSuccessMessage(successMessage);
+		responseJson.setID(ID);			
+		responseJson.setEmployeeID(EmployeeId);
+		return responseJson;
+	}
 }

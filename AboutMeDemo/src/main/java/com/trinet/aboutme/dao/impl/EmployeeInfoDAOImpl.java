@@ -19,6 +19,7 @@ import com.trinet.aboutme.dtos.ContactDTO;
 import com.trinet.aboutme.dtos.IdentityDTO;
 import com.trinet.aboutme.dtos.NameDTO;
 import com.trinet.aboutme.dtos.PersonalDataDTO;
+import com.trinet.aboutme.utils.CommonUtils;
 
 public class EmployeeInfoDAOImpl extends HibernateDaoSupport implements
 		EmployeeInfoDAO {
@@ -52,7 +53,16 @@ public class EmployeeInfoDAOImpl extends HibernateDaoSupport implements
 	}
 	
 	@Override
-	public List<Identity> getIdentity(Integer employeeId) {
+	public List<Identity> getIdentity(Integer identityId) {
+		 DetachedCriteria criteria = DetachedCriteria
+					.forClass(Identity.class);
+		 criteria.add(Restrictions.eq("identityID", identityId));
+		List<Identity> findByCriteria = (List<Identity>)getHibernateTemplate().findByCriteria(criteria);
+		return findByCriteria;
+	}
+	
+	@Override
+	public List<Identity> getIdentityByEmployee(Integer employeeId) {
 		 DetachedCriteria criteria = DetachedCriteria
 					.forClass(Identity.class);
 		 criteria.add(Restrictions.eq("employeeID", employeeId));
@@ -282,15 +292,20 @@ public class EmployeeInfoDAOImpl extends HibernateDaoSupport implements
 
 	@Override
 	public List<Identity> maintaniIdentity(IdentityDTO identityDTO) {
-		List<Identity> identityList = getIdentityByIdentityId(identityDTO.getIdentityID());
+		List<Identity> identityList = getIdentity(identityDTO.getIdentityID());
 		Identity identity= new Identity();
 		if(CollectionUtils.isNotEmpty(identityList))
 		{
 			identity =  identityList.get(0);
 		}
 		populateIdentity(identityDTO, identity);
-		getHibernateTemplate().saveOrUpdate(identity);
-		return getIdentity(identity.getIdentityID());
+		try {
+			getHibernateTemplate().saveOrUpdate(identity);	
+		} catch (Exception e) {
+			CommonUtils.sendErrorDetails(e.getLocalizedMessage());
+		}
+		return getIdentityByEmployeeId(identity.getEmployeeID());
+		
 	}
 
 	
@@ -322,10 +337,10 @@ public class EmployeeInfoDAOImpl extends HibernateDaoSupport implements
 		}
 		}
 	
-	public List<Identity> getIdentityByIdentityId(Integer idtyId) {
+	public List<Identity> getIdentityByEmployeeId(Integer employeeId) {
 		 DetachedCriteria criteria = DetachedCriteria
 				.forClass(Identity.class);
-		 criteria.add(Restrictions.eq("identityID", idtyId));
+		 criteria.add(Restrictions.eq("employeeID", employeeId));
 		List<Identity> identityList = (List<Identity>)getHibernateTemplate().findByCriteria(criteria);
 		return identityList;
 	}
