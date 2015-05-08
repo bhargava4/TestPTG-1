@@ -10,12 +10,12 @@ import org.apache.commons.collections.CollectionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.trinet.aboutme.beans.ErrorResponse;
+import com.trinet.aboutme.beans.SuccessResponse;
 import com.trinet.aboutme.constants.UtilConstants;
 import com.trinet.aboutme.dtos.AddressDTO;
 import com.trinet.aboutme.dtos.ContactDTO;
@@ -23,6 +23,7 @@ import com.trinet.aboutme.dtos.IdentityDTO;
 import com.trinet.aboutme.dtos.NameDTO;
 import com.trinet.aboutme.dtos.PersonalDataDTO;
 import com.trinet.aboutme.service.EmployeeInfoService;
+import com.trinet.aboutme.utils.CommonUtils;
 
 /**
  * @author Swathi
@@ -32,7 +33,8 @@ import com.trinet.aboutme.service.EmployeeInfoService;
 public class EmployeeInfoControllerImpl implements EmployeeInfoController {
 	private static final Logger LOGGER = LoggerFactory
 			.getLogger(EmployeeInfoControllerImpl.class);
-
+	
+	
 	@Autowired
 	private EmployeeInfoService employeeInfoService;
 
@@ -84,16 +86,15 @@ public class EmployeeInfoControllerImpl implements EmployeeInfoController {
 	}
 
 	@Override
-	public IdentityDTO getIdentity(@PathVariable int employeeId) {
+	public IdentityDTO getIdentityByEmployee(@PathVariable int employeeId) {
 		LOGGER.info(" *** start getIdentity *****");
 		IdentityDTO identityDTO = new IdentityDTO();
 		List<IdentityDTO> identityList = new ArrayList<IdentityDTO>();
-		identityList = employeeInfoService.getIdentity(employeeId);
+		identityList = employeeInfoService.getIdentityByEmployee(employeeId);
 		if (CollectionUtils.isNotEmpty(identityList)) {
 			identityDTO = identityList.get(0);
 		}
-		LOGGER.info(" *** end getIdentity *****");
-
+		LOGGER.info(" *** end getIdentity *****");	
 		return identityDTO;
 	}
 
@@ -169,18 +170,19 @@ public class EmployeeInfoControllerImpl implements EmployeeInfoController {
 	}
 
 	@Override
-	public String maintainIdentity(@RequestBody IdentityDTO identityDTO) {
+	public Object maintainIdentity(@RequestBody IdentityDTO identityDTO) {
 		LOGGER.info(" *** start maintainIdentity *****");
 		String status = UtilConstants.FAILURE;
 		List<IdentityDTO> identityList = new ArrayList<IdentityDTO>();
 		identityList = employeeInfoService.maintainIdentity(identityDTO);
 		if (CollectionUtils.isNotEmpty(identityList)) {
-			status = UtilConstants.SUCCESS;
+			LOGGER.info(" *** end maintainIdentity*****");
+			return CommonUtils.updatedSuccessfully("Employee Identity Updated Succesfully",identityDTO.getEmployeeID(),identityDTO.getIdentityID());
 		}
-		LOGGER.info(" *** end maintainIdentity*****");
-		return status;
-
+		return CommonUtils.sendErrorDetails("Employee Identity not Updated Successfully, Please check the Data and Update Once Again");
 	}
+
+	
 
 	@Override
 	public String deletePersonalData(@PathVariable int employeeId) {

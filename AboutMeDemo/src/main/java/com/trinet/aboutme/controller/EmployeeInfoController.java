@@ -34,7 +34,7 @@ public interface EmployeeInfoController {
 	public NameDTO getName(@PathVariable int employeeId);
 
 	@RequestMapping(value = "/identities/{employeeId}", method = RequestMethod.GET)
-	public IdentityDTO getIdentity(@PathVariable int employeeId);
+	public IdentityDTO getIdentityByEmployee(@PathVariable int employeeId);
 
 	@RequestMapping(value = "/personaldata/{employeeId}", method = RequestMethod.GET)
 	public PersonalDataDTO getPersonalData(@PathVariable int employeeId);
@@ -52,7 +52,7 @@ public interface EmployeeInfoController {
 	public String maintainPersonalData(@RequestBody PersonalDataDTO personalDataDTO);
 	
 	@RequestMapping(value="/identities", method=RequestMethod.PUT)
-	public String maintainIdentity(@RequestBody IdentityDTO identityDTO);
+	public Object maintainIdentity(@RequestBody IdentityDTO identityDTO);
 
 
 	@RequestMapping(value = "/personaldata/{employeeId}", method = RequestMethod.DELETE)

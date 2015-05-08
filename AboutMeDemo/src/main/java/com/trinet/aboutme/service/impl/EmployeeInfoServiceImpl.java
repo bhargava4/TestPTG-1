@@ -71,9 +71,9 @@ public class EmployeeInfoServiceImpl implements EmployeeInfoService {
 	}
 	
 	@Override
-	public List<IdentityDTO> getIdentity(Integer employeeId) {
+	public List<IdentityDTO> getIdentityByEmployee(Integer employeeId) {
 		List<IdentityDTO> identityDTOList = new ArrayList<IdentityDTO>();
-		List<Identity> identityList = employeeInfoDAO.getIdentity(employeeId);
+		List<Identity> identityList = employeeInfoDAO.getIdentityByEmployee(employeeId);
 		for (Identity identity : identityList) {
 			IdentityDTO identityDTO = new IdentityDTO(); 
 			BeanUtils.copyProperties(identity, identityDTO);
