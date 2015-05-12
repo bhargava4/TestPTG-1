@@ -89,7 +89,7 @@ public class EmployeeInfoDAOImpl extends HibernateDaoSupport implements
 		}
 		populateAddress(addressDTO, address);
 		getHibernateTemplate().saveOrUpdate(address);
-		return getAddress(address.getAddressID());
+		return getAddressByAddressId(address.getAddressID());
 	}
 
 	private void populateAddress(AddressDTO addressDTO, Address address) {
