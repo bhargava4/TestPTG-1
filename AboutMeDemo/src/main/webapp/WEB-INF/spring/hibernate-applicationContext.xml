@@ -33,6 +33,8 @@
 				<value>com.trinet.aboutme.beans.SIMRoles</value>
 				<value>com.trinet.aboutme.beans.SIMSecret</value>
 				<value>com.trinet.aboutme.beans.EmployeeOptions</value>
+				<value>com.trinet.aboutme.beans.TextToken</value>
+				<value>com.trinet.aboutme.beans.SplashContentSeq</value>
 			</list>
 		</property>
 
