@@ -18,8 +18,6 @@ import com.trinet.aboutme.dao.EmergencyContactDAO;
  */
 public class EmergencyContactDAOImpl extends HibernateDaoSupport implements
 		EmergencyContactDAO {
-	DetachedCriteria criteria = DetachedCriteria
-			.forClass(EmergencyContact.class);
 
 	/*
 	 * (non-Javadoc)
@@ -28,6 +26,7 @@ public class EmergencyContactDAOImpl extends HibernateDaoSupport implements
 	 */
 	@Override
 	public List<EmergencyContact> getEmergencyContacts(Integer employeeId) {
+		DetachedCriteria criteria = DetachedCriteria.forClass(EmergencyContact.class);
 		criteria.add(Restrictions.eq("employeeId", employeeId));
 		return (List<EmergencyContact>) getHibernateTemplate().findByCriteria(
 				criteria);

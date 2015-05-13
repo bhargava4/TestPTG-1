@@ -96,7 +96,7 @@ public class CommonUtils {
 
 	public static Object updatedSuccessfully(String successMessage,Integer EmployeeId,Integer ID) {
 		SuccessResponse responseJson=new SuccessResponse();
-		responseJson.setRespnoseCode("400");
+		responseJson.setRespnoseCode("200");
 		responseJson.setSuccessMessage(successMessage);
 		responseJson.setID(ID);			
 		responseJson.setEmployeeID(EmployeeId);
