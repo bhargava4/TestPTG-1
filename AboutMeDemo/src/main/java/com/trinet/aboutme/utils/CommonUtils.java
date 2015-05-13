@@ -87,19 +87,18 @@ public class CommonUtils {
 		
 	}
 	
-	public static Object sendErrorDetails(String errorMessage) {
+	public static Object sendErrorDetails(String errorMessage,String code) {
 		ErrorResponse errorDetails=new ErrorResponse();
-		errorDetails.setErrorCode("500");
-		errorDetails.setErrorDetails(errorMessage);		
+		errorDetails.setErrorCode(code);
+		errorDetails.setErrorMessage(errorMessage);
 		return errorDetails;
 	}
 
-	public static Object updatedSuccessfully(String successMessage,Integer EmployeeId,Integer ID) {
+	public static Object updatedSuccessfully(Object dto) {
 		SuccessResponse responseJson=new SuccessResponse();
 		responseJson.setRespnoseCode("200");
-		responseJson.setSuccessMessage(successMessage);
-		responseJson.setID(ID);			
-		responseJson.setEmployeeID(EmployeeId);
+		responseJson.setSuccessMessage("Success");
+		responseJson.setResource(dto);
 		return responseJson;
 	}
 }

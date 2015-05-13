@@ -18,13 +18,13 @@ public interface EmergencyContactController {
 
 	
 	@RequestMapping(value="/contactdetails/{employeeNo}", method=RequestMethod.GET)
-	List<EmergencyContactDTO> getEmergencyContacts(@PathVariable int employeeNo);
+	Object getEmergencyContacts(@PathVariable int employeeNo);
 	
 	@RequestMapping(value="/contactdetails", method=RequestMethod.POST)
-	String createEmergencyContact(@RequestBody EmergencyContactDTO contactDTO);
+	Object createEmergencyContact(@RequestBody EmergencyContactDTO contactDTO);
 	
 	@RequestMapping(value="/contactdetails", method=RequestMethod.PUT)
-	String updateEmergencyContact(@RequestBody EmergencyContactDTO contactDTO);
+	Object updateEmergencyContact(@RequestBody EmergencyContactDTO contactDTO);
 	
 	
 }

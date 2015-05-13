@@ -54,7 +54,7 @@ public class EmergencyContactServiceImpl implements EmergencyContactService {
 	 * @see com.trinet.aboutme.service.EmergencyContactService#createEmergencyContact(com.trinet.aboutme.dtos.EmergencyContactDTO)
 	 */
 	@Override
-	public void createEmergencyContact(EmergencyContactDTO contactDTO) {
+	public void createEmergencyContact(EmergencyContactDTO contactDTO) throws Exception {
 		EmergencyContact emergencyContact = new EmergencyContact();
 		BeanUtils.copyProperties(contactDTO, emergencyContact);
 		emergencyContactDAO.saveEmergencyContact(emergencyContact);

@@ -3,21 +3,19 @@ package com.trinet.aboutme.beans;
 public class SuccessResponse {
 	private String respnoseCode;
 	private String successMessage;
-	private Integer ID;
-	private Integer employeeID;
+	private Object resource;
 	
-	
-	public Integer getID() {
-		return ID;
+	/**
+	 * @return the resource
+	 */
+	public Object getResource() {
+		return resource;
 	}
-	public void setID(Integer iD) {
-		ID = iD;
-	}
-	public Integer getEmployeeID() {
-		return employeeID;
-	}
-	public void setEmployeeID(Integer employeeID) {
-		this.employeeID = employeeID;
+	/**
+	 * @param resource the resource to set
+	 */
+	public void setResource(Object resource) {
+		this.resource = resource;
 	}
 	public String getRespnoseCode() {
 		return respnoseCode;

@@ -13,7 +13,7 @@ import com.trinet.aboutme.dtos.SecretDTO;
 public interface SIMController {
 	
 	@RequestMapping(value = "/customlogin", method = RequestMethod.POST, consumes = "application/json")
-	String createCustomLogin(@RequestBody CustomDetailsDTO loginDetailsDTO);
+	Object createCustomLogin(@RequestBody CustomDetailsDTO loginDetailsDTO);
 
 	@RequestMapping(value = "/password", method = RequestMethod.PUT, consumes = "application/json")
 	String updatePassword(@RequestBody PasswordDTO passwordDTO);
@@ -22,7 +22,7 @@ public interface SIMController {
 	String updateSecret(@RequestBody SecretDTO secretDTO);
 
 	@RequestMapping(value = "/roles", method = RequestMethod.POST)
-	String insertRoles(@RequestBody RolesDTO rolesDTO);
+	Object insertRoles(@RequestBody RolesDTO rolesDTO);
 
 	@RequestMapping(value = "/roles", method = RequestMethod.DELETE)
 	String deleteRoles(@RequestBody RolesDTO rolesDTO);

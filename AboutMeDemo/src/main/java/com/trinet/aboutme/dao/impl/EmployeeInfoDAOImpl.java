@@ -302,7 +302,7 @@ public class EmployeeInfoDAOImpl extends HibernateDaoSupport implements
 		try {
 			getHibernateTemplate().saveOrUpdate(identity);	
 		} catch (Exception e) {
-			CommonUtils.sendErrorDetails(e.getLocalizedMessage());
+			CommonUtils.sendErrorDetails(e.getLocalizedMessage(),"500");
 		}
 		return getIdentityByEmployeeId(identity.getEmployeeID());
 		

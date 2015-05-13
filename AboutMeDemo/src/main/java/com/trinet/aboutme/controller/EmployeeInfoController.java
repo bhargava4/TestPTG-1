@@ -25,31 +25,31 @@ import com.trinet.aboutme.dtos.PersonalDataDTO;
 public interface EmployeeInfoController {
 
 	@RequestMapping(value = "/addresses/{employeeId}", method = RequestMethod.GET)
-	public AddressDTO getAddress(@PathVariable int employeeId);
+	public Object getAddress(@PathVariable int employeeId);
 
 	@RequestMapping(value = "/contacts/{employeeId}", method = RequestMethod.GET)
-	public ContactDTO getContact(@PathVariable int employeeId);
+	public Object getContact(@PathVariable int employeeId);
 
 	@RequestMapping(value = "/names/{employeeId}", method = RequestMethod.GET)
-	public NameDTO getName(@PathVariable int employeeId);
+	public Object getName(@PathVariable int employeeId);
 
 	@RequestMapping(value = "/identities/{employeeId}", method = RequestMethod.GET)
-	public IdentityDTO getIdentityByEmployee(@PathVariable int employeeId);
+	public Object getIdentityByEmployee(@PathVariable int employeeId);
 
 	@RequestMapping(value = "/personaldata/{employeeId}", method = RequestMethod.GET)
-	public PersonalDataDTO getPersonalData(@PathVariable int employeeId);
+	public Object getPersonalData(@PathVariable int employeeId);
 
 	@RequestMapping(value = "/addresses", method = RequestMethod.PUT, consumes = "application/json")
-	public String maintainAddress(@RequestBody AddressDTO addressDTO);
+	public Object maintainAddress(@RequestBody AddressDTO addressDTO);
 
 	@RequestMapping(value = "/contacts", method = RequestMethod.PUT, consumes = "application/json")
-	public String maintainContact(@RequestBody ContactDTO contactDTO);
+	public Object maintainContact(@RequestBody ContactDTO contactDTO);
 
 	@RequestMapping(value = "/names", method = RequestMethod.PUT, consumes = "application/json")
-	public String maintainName(@RequestBody NameDTO nameDTO);
+	public Object maintainName(@RequestBody NameDTO nameDTO);
 
 	@RequestMapping(value = "/personaldata", consumes = "application/json", method = RequestMethod.PUT)
-	public String maintainPersonalData(@RequestBody PersonalDataDTO personalDataDTO);
+	public Object maintainPersonalData(@RequestBody PersonalDataDTO personalDataDTO);
 	
 	@RequestMapping(value="/identities", method=RequestMethod.PUT)
 	public Object maintainIdentity(@RequestBody IdentityDTO identityDTO);

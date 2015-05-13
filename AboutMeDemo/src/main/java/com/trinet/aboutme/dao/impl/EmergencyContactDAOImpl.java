@@ -40,8 +40,11 @@ public class EmergencyContactDAOImpl extends HibernateDaoSupport implements
 	 * .aboutme.beans.EmergencyContact)
 	 */
 	@Override
-	public void saveEmergencyContact(EmergencyContact emergencyContact) {
-		getHibernateTemplate().save(emergencyContact);
+	public void saveEmergencyContact(EmergencyContact emergencyContact)  throws Exception {
+			getHibernateTemplate().save(emergencyContact);
+		
+		
+		
 	}
 
 	/*

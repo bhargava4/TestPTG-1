@@ -16,6 +16,7 @@ import com.trinet.aboutme.dtos.EmployeeProfileDTO;
 public interface EmployeeProfileController {
 	
 	@RequestMapping(value="/workprofiles/{employeeNo}", method=RequestMethod.GET, produces="application/json")
-	public EmployeeProfileDTO getWorkProfile(@PathVariable int employeeNo);
+	public Object getWorkProfile(@PathVariable int employeeNo);
+	
 
 }

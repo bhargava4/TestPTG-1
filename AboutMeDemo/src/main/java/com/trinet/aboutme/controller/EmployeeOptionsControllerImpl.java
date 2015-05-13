@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.trinet.aboutme.beans.SuccessResponse;
 import com.trinet.aboutme.dtos.EmployeeOptionsDTO;
 import com.trinet.aboutme.service.EmployeeOptionsService;
 
@@ -15,7 +16,7 @@ public class EmployeeOptionsControllerImpl implements EmployeeOptionsController
 {
 	
 	private static final Logger logger = LoggerFactory.getLogger(EmployeeOptionsControllerImpl.class);
-
+	private SuccessResponse successResponse;
 	@Autowired
 	private EmployeeOptionsService employeeOptionsService;
 	

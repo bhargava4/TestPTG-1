@@ -18,6 +18,7 @@ import com.trinet.aboutme.utils.CommonUtils;
 public class UtilsControllerImpl implements UtilsController{
 	
 	private static final Logger logger = LoggerFactory.getLogger(UtilsControllerImpl.class);
+	
 
 	/* (non-Javadoc)
 	 * @see com.trinet.aboutme.controller.UtilsController#getGender()

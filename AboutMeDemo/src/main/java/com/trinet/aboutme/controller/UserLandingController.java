@@ -16,8 +16,8 @@ import com.trinet.aboutme.dtos.UserLandingDTO;
 public interface UserLandingController {
 
 	@RequestMapping(value="/importantnotices/{employeeId}", method=RequestMethod.GET)
-	List<UserLandingDTO> getImportantNotices(@PathVariable int employeeId);
+	Object getImportantNotices(@PathVariable int employeeId);
 	
 	@RequestMapping(value="/itemsofinterest/{employeeId}", method=RequestMethod.GET)
-	List<UserLandingDTO> getItemsOfInterest(@PathVariable int employeeId);
+	Object getItemsOfInterest(@PathVariable int employeeId);
 }

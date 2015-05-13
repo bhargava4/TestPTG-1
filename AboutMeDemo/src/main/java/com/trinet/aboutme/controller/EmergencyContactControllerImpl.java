@@ -9,8 +9,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.trinet.aboutme.beans.SuccessResponse;
 import com.trinet.aboutme.dtos.EmergencyContactDTO;
 import com.trinet.aboutme.service.EmergencyContactService;
+import com.trinet.aboutme.utils.CommonUtils;
 
 /**
  * @author Bhargava
@@ -20,32 +22,43 @@ import com.trinet.aboutme.service.EmergencyContactService;
 public class EmergencyContactControllerImpl implements EmergencyContactController{
 	
 	private static final Logger LOGGER = LoggerFactory.getLogger(EmergencyContactControllerImpl.class);
-
+	private SuccessResponse successResponse;
 	@Autowired
 	private EmergencyContactService emergencyContactService;
 	
 
 	@Override
-	public List<EmergencyContactDTO> getEmergencyContacts(@PathVariable int employeeNo) {
+	public Object getEmergencyContacts(@PathVariable int employeeNo) {
 		LOGGER.info("Get Emergency Contacts of Employee:" + employeeNo);
-		return emergencyContactService.getEmergencyContacts(new Integer(employeeNo));
+		try {
+			if(emergencyContactService.getEmergencyContacts(new Integer(employeeNo)).size()>0)
+		return CommonUtils.updatedSuccessfully(emergencyContactService.getEmergencyContacts(new Integer(employeeNo)));
+			return CommonUtils.sendErrorDetails("No Record Found, Bad Request","400");
+		} catch (Exception e) {
+			return CommonUtils.sendErrorDetails(e.getMessage(),"500");
+		}
 	}
 	
 	/* (non-Javadoc)
 	 * @see com.trinet.aboutme.EmergencyContactController#createEmergencyContact(com.trinet.aboutme.dtos.EmergencyContactDTO)
 	 */
 	@Override
-	public String createEmergencyContact(@RequestBody EmergencyContactDTO contactDTO) {
-		emergencyContactService.createEmergencyContact(contactDTO);
-		return "Successfully Added";
+	public Object createEmergencyContact(@RequestBody EmergencyContactDTO contactDTO) {
+		try {
+			emergencyContactService.createEmergencyContact(contactDTO);
+		} catch (Exception e) {
+			CommonUtils.sendErrorDetails(e.getMessage(),"500");
+		}
+		
+		return CommonUtils.updatedSuccessfully(contactDTO);
 	}
 
 	/* (non-Javadoc)
 	 * @see com.trinet.aboutme.EmergencyContactController#updateEmergencyContact(com.trinet.aboutme.dtos.EmergencyContactDTO)
 	 */
 	@Override
-	public String updateEmergencyContact(@RequestBody EmergencyContactDTO contactDTO) {
+	public Object updateEmergencyContact(@RequestBody EmergencyContactDTO contactDTO) {
 		emergencyContactService.updateEmergencyContact(contactDTO);
-		return "Successfully Updated";
+		return CommonUtils.updatedSuccessfully(contactDTO);
 	}
 }

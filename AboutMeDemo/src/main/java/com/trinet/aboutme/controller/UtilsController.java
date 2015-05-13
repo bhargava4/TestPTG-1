@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.trinet.aboutme.dtos.SelectItemDTO;
+import com.trinet.aboutme.utils.CommonUtils;
 
 /**
  * @author Bhargava
@@ -17,6 +18,8 @@ public interface UtilsController {
 
 	@RequestMapping(value="/gender", method=RequestMethod.GET)
 	List<SelectItemDTO> getGenderList();
+
+	
 	
 	@RequestMapping(value="/maritalstatus", method=RequestMethod.GET)
 	List<SelectItemDTO> getMaritalStatusList();
